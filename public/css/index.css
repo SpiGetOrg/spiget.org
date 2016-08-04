@@ -1,0 +1,102 @@
+html {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+div#stats {
+    background-color: orange;
+    margin: 0 -9999rem;
+    /*@formatter:off*/
+padding: 0.25rem 9999rem;
+/*@formatter:on*/
+}
+
+div#stats-container {
+    padding: 10px;
+    padding-top: 0px;
+}
+
+#stats_title {
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+.stat {
+
+}
+
+.stat-value {
+    font-size: 80px;
+    text-transform: uppercase;
+}
+
+.stat-description {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.full-logo {
+    float: right;
+    max-width: 256px;
+    max-height: 256px;
+}
+
+#stats-scroller {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#new-entries {
+    padding: 10px;
+    padding-top: 60px;
+}
+
+#new-entries-container {
+    padding-top: 10px;
+}
+
+ul.data-list {
+    list-style: none;
+    border: solid silver 1px;
+    border-radius: 4px !important;
+    padding: 10px;
+    min-height: 100px;
+}
+
+ul.data-list > li {
+    padding: 2px;
+}
+
+ul.data-list > li > a {
+    font-weight: bold;
+}
+
+.new-authors-icon, .new-resources-icon {
+    border-color: orange;
+}
+
+.supporter-container {
+    min-height: 146px; /* 128px + 2*9px */
+}
+
+.supporter-image-link {
+    float: left;
+    padding-right: 20px;
+}
+
+.supporter-image {
+    width: 128px;
+    height: 128px;
+}
+
+a.supporter-title {
+    text-decoration: none;
+}
+
+ul.supporter-list {
+    list-style: none;
+}

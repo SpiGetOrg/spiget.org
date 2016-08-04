@@ -1,0 +1,26 @@
+.status-title {
+    color: orange;
+}
+
+.fetch_status {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#fetch_status_fetching.updating {
+    color: orange;
+    font-weight: bold;
+}
+
+#fetch_status_fetching.updated {
+    color: green;
+    font-weight: bold;
+}
+
+.date {
+    color: orange;
+}
+
+.hour {
+    color: orange;
+}

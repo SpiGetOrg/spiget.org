@@ -1,0 +1,12 @@
+.resource-panel {
+    border-color: orange;
+}
+
+.resource-panel > .panel-heading {
+    border-color: orange;
+    background-color: rgba(255, 179, 40, 0.93);
+}
+
+.resource-panel > a {
+    color: #0057A2;
+}
