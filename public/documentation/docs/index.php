@@ -1,2 +1,3 @@
 <?php
-header("Location: https://raw.githubusercontent.com/SpiGetOrg/Documentation/master/swagger.json");
+
+echo file_get_contents("https://raw.githubusercontent.com/SpiGetOrg/Documentation/master/swagger.json");
