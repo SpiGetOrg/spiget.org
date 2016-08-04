@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-glyphicons.min.css">
     <link rel="stylesheet" href="/css/custom-bootstrap.min.css">
-    <link rel="stylesheet" href="/css/navigation.min.css">
-    <link rel="stylesheet" href="/css/sticky-footer.min.css">
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link rel="stylesheet" href="/css/sticky-footer.css">
 
     <link rel="stylesheet" href="/css/rpm.css">
 
