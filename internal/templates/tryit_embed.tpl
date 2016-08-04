@@ -21,4 +21,4 @@
     </div>
 </div>
 <script src="/js/bootstrap3-typeahead.min.js"></script>
-<script src="/js/tryit.js"></script>
+<script src="/js/tryit.min.js"></script>

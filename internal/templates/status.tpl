@@ -11,7 +11,7 @@
 {/block}
 
 {block name="style"}
-    <link rel="stylesheet" href="/css/status.css">
+    <link rel="stylesheet" href="/css/status.min.css">
 {/block}
 
 {block name="content"}
@@ -79,5 +79,5 @@
     <script src="/js/moment.min.js"></script>
     <script src="/js/moment-duration.min.js"></script>
     <script src="/js/js-cookie.min.js"></script>
-    <script async src="/js/status.js?v1"></script>
+    <script async src="/js/status.min.js"></script>
 {/block}

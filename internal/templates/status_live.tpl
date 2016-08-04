@@ -33,5 +33,5 @@
 {block name="scripts"}
     <script src="/js/moment.min.js"></script>
     <script src="/js/moment-duration.min.js"></script>
-    <script async src="/js/live-status.js"></script>
+    <script async src="/js/live-status.min.js"></script>
 {/block}

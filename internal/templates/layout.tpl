@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-glyphicons.min.css">
     <link rel="stylesheet" href="/css/custom-bootstrap.min.css">
-    <link rel="stylesheet" href="/css/navigation.css">
-    <link rel="stylesheet" href="/css/sticky-footer.css">
+    <link rel="stylesheet" href="/css/navigation.min.css">
+    <link rel="stylesheet" href="/css/sticky-footer.min.css">
 
     <link rel="stylesheet" href="/css/rpm.css">
 
@@ -119,11 +119,11 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="/js/navigation.js"></script>
-<script src="/js/alert.js?v1"></script>
+<script src="/js/navigation.min.js"></script>
+<script src="/js/alert.min.js"></script>
 <script async src="/js/twitter-widget.js"></script>
 <script src="/js/js-cookie.min.js"></script>
-<script async src="/js/rpm.js"></script>
+<script async src="/js/rpm.min.js"></script>
 <script async src="/js/cookiecounter.js"></script>
 
 {literal}

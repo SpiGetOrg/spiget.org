@@ -7,7 +7,7 @@
 {/block}
 
 {block name="style"}
-    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/search.min.css">
 {/block}
 
 {block name="content"}
@@ -63,5 +63,5 @@
         var query = "{$query}";
         var limit = parseInt("{$limit}");
     </script>
-    <script src="/js/search.js?v2"></script>
+    <script src="/js/search.min.js"></script>
 {/block}

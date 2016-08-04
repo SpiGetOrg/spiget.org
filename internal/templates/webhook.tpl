@@ -112,6 +112,6 @@
 
 {block name="scripts"}
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-    <script src="/js/code-loader.js"></script>
-    <script src="/js/webhook-editor.js?v7"></script>
+    <script src="/js/code-loader.min.js"></script>
+    <script src="/js/webhook-editor.min.js"></script>
 {/block} 

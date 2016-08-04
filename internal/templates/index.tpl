@@ -123,9 +123,9 @@
 {/block}
 
 {block name="scripts"}
-    <script async src="/js/stats.js?v2"></script>
-    <script async src="/js/eo.js"></script>
+    <script async src="/js/stats.min.js"></script>
+    <script async src="/js/eo.min.js"></script>
     <script async src="/js/bootstrap3-typeahead.min.js"></script>
-    <script async src="/js/tryit-modal.js"></script>
-    <script async src="/js/index-animation.js"></script>
+    <script async src="/js/tryit-modal.min.js"></script>
+    <script async src="/js/index-animation.min.js"></script>
 {/block}
