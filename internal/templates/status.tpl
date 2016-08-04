@@ -18,7 +18,7 @@
     <div id="api-status-panel" class="panel panel-warning">
         <div class="panel-heading">
             <strong class="status-title">API</strong> | <span id="api-status">Unknown</span>
-            <span class="pull-right"><a href="http://status.spiget.org?aff=38996" target="_blank" title="Website Uptime Monitoring"><img src="https://www.statuscake.com/App/button/index.php?Track=17c0i9q7ti&Days=30&Design=5"/></a>&nbsp;
+            <span class="pull-right"><a href="http://status.spiget.org?aff=38996" target="_blank" title="Website Uptime Monitoring"><img src="https://www.statuscake.com/App/button/index.php?Track=UQ279l6LKw&Days=30&Design=5"/></a>&nbsp;
                 <select id="api_version_selector" title="Stats API Version">
                     <option value="v1">https://api.spiget.org/v1</option>
                     <option selected value="v2">https://api.spiget.org/v2</option>
