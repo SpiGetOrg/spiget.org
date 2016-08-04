@@ -139,6 +139,4 @@
 
 {block name="scripts"}
 {/block}
-<script type="text/javascript">var SC_RumID = 5917;</script>
-<script type="text/javascript" async src="https://www.statuscake.com/App/RUM/embed.js"></script>
 </html>
