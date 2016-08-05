@@ -260,7 +260,7 @@ $(document).ready(function () {
                     });
                     $.each(value.methods, function (method, amount) {
                         //Replace the API version
-                        method = method.replace("v1/", "").replace("v1"/*For the root path*/, "");
+                        method = method.replace("v2/", "").replace("v2"/*For the root path*/, "");
                         if (methods[method] == undefined) {
                             methods[method] = new Array();
                         }
