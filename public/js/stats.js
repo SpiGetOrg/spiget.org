@@ -52,7 +52,7 @@ $(document).ready(function () {
                         "	<a class='new-res-author text-muted pull-right' id='new_res_author_" + resource.id + "' target='_blank' href='#'></a>" + //
                         "</li>");
 
-                    if (resource.updatedDate === resource.releaseDate) {
+                    if (resource.updateDate === resource.releaseDate) {
                         $("#new_res_extra_" + resource.id).attr("title", "New Resource");
                         $("#new_res_extra_" + resource.id).append("&nbsp;<span class='glyphicon glyphicon-star'></span>");
                     }
