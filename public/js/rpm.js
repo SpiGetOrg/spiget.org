@@ -51,9 +51,22 @@ window.RequestsPerMinute = {
 };
 
 RequestsPerMinute.refresh();
-setInterval(function () {
+var refreshInterval = 0;
+refreshInterval = setInterval(function () {
     RequestsPerMinute.refresh();
 }, 10000);
+$(window).on("focus", function () {
+    if (refreshInterval === 0) {
+        refreshInterval = setInterval(function () {
+            RequestsPerMinute.refresh();
+        }, 10000);
+    }
+});
+$(window).on("blur", function () {
+    clearInterval(refreshInterval);
+    refreshInterval = 0;
+});
+
 setTimeout(function () {
     RequestsPerMinute.blinkElements();
 }, 10000);
