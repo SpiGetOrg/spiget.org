@@ -22,7 +22,7 @@ window.Status = {
                 //Ignore all of our requests
                 delete Status.cache.agents.SpigetLiveStatus;
                 // Status.cache.methods["\/v1\/metrics\/requests"]=Status.cache.methods["\/v1\/metrics\/requests"]-1;
-                delete Status.cache.methods["\/v1\/metrics\/requests"];
+                delete Status.cache.methods["\/v2\/metrics\/requests"];
 
                 //Wait for the next run
                 if (firstRun || Status.cache.agents.length == 0 && Status.cache.methods.length == 0)
