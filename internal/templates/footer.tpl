@@ -13,7 +13,7 @@
         </div>
         <div class="navbar-text pull-left">
             <p>
-                Created &amp; Maintained by <strong><a href="https://inventivetalent.org?ref=spiget">inventivetalent</a></strong> &nbsp;&nbsp; <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a>
+                Created &amp; Maintained by <strong><a href="https://inventivetalent.org?ref=spiget">inventivetalent</a></strong> &nbsp;&nbsp; <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a> | <a href="https://inventivetalent.org/terms">Imprint</a>
             </p>
         </div>
         <div class="navbar-text pull-right hidden-sm">
