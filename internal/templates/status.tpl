@@ -79,5 +79,6 @@
     <script src="/js/moment.min.js"></script>
     <script src="/js/moment-duration.min.js"></script>
     <script src="/js/js-cookie.min.js"></script>
-    <script async src="/js/status.min.js"></script>
+    <script src="/js/regression.js"></script>
+    <script async src="/js/status.min.js?7"></script>
 {/block}

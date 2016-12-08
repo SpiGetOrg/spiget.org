@@ -270,7 +270,7 @@ $(document).ready(function () {
 
                 //Daily requests
                 $("#daily_requests_collapse").collapse("show");
-                var dailySeries = new Array();
+                var dailySeries = [];
                 for (var key in totalRequests) {
                     value = totalRequests[key];
                     key = parseInt(key.trim());
@@ -280,7 +280,7 @@ $(document).ready(function () {
                         dailySeries.push([date, value]);
                     }
                 }
-                ;
+
                 $("#daily_requests_graph").highcharts({
                     chart: {
                         type: "spline",
@@ -325,10 +325,17 @@ $(document).ready(function () {
                         formatter: seriesFormatter,
                         useHTML: true
                     },
-                    series: [{
-                        name: "total",
-                        data: dailySeries
-                    }]
+                    series: [
+                        {
+                            name: "total",
+                            data: dailySeries
+                        }, {
+                            name: "average",
+                            data: (function() {
+                                return fitData(dailySeries).data;
+                            })()
+                        }
+                    ]
                 });
 
                 //User-Agent requests
