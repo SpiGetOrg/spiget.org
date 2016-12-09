@@ -63,5 +63,5 @@
         var query = "{$query}";
         var limit = parseInt("{$limit}");
     </script>
-    <script src="/js/search.min.js"></script>
+    <script src="/js/search.min.js?1"></script>
 {/block}
