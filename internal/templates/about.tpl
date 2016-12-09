@@ -37,8 +37,8 @@
         <div style="font-size:16px">
             <strong>This project is open-source!</strong>
             <br/>
-            All repositories for the API, Website and Fetcher are located
-            <a href="https://github.com/spigetorg" target="_blank">here.</a>
+            All repositories for the <a href="https://github.com/SpiGetOrg/RestAPI" target="_blank">API</a>, <a href="https://github.com/SpiGetOrg/spiget.org" target="_blank">Website</a>, <a href="https://github.com/SpiGetOrg/SpigetFetcher" target="_blank">Fetcher</a> and <a href="https://github.com/SpiGetOrg/Documentation" target="_blank">Documentation</a> are located
+            <a href="https://github.com/spigetorg" target="_blank">on GitHub.</a>
         </div>
         <br/>
     </div>
