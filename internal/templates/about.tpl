@@ -32,6 +32,12 @@
         <strong>Please feel free to report issues or suggest features using the <a target="_blank" href="/issues">Issue Tracker</a>.</strong>
     </div>
     <br/>
+    <h2>Contributing</h2>
+    <strong>This project is open-source!</strong>
+    <br/>
+    All repositories for the API, Website and Fetcher are located
+    <a href="https://github.com/spigetorg" target="_blank">here.</a>
+    <br/>
     <h2>Feature Requests <span class="text-muted">|</span> Bug Reports</h2>
     <div style="font-size:16px">
         If you would like to suggest a feature or if you found a Bug,
@@ -49,7 +55,7 @@
     </div>
     <br/>
     <div>
-        <a class="twitter-timeline"  href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017">Tweets about SpiGet</a>
+        <a class="twitter-timeline" href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017">Tweets about SpiGet</a>
     </div>
 {/block}
 {block name="scripts"}
