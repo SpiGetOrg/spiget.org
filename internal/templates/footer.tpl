@@ -20,6 +20,9 @@
             <a href="https://twitter.com/Spiget_org" class="twitter-follow-button" data-show-count="false">Follow @Spiget</a>
             <a href="https://twitter.com/Inventivtalent" class="twitter-follow-button" data-show-count="false">Follow @inventivetalent</a>
 
+            &nbsp;
+
+            <a href="https://github.org/SpiGetOrg" target="_blank"><img src="/img/GitHub-Mark-32px.png" width="32" height="32" alt="GitHub"></a>
         </div>
         <div>
             {literal}
