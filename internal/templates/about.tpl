@@ -30,30 +30,38 @@
         <strong>This project is currently in BETA, so its functionality and availability is not guaranteed yet.</strong>
         <br/>
         <strong>Please feel free to report issues or suggest features using the <a target="_blank" href="/issues">Issue Tracker</a>.</strong>
-    </div>
-    <br/>
-    <h2>Contributing</h2>
-    <strong>This project is open-source!</strong>
-    <br/>
-    All repositories for the API, Website and Fetcher are located
-    <a href="https://github.com/spigetorg" target="_blank">here.</a>
-    <br/>
-    <h2>Feature Requests <span class="text-muted">|</span> Bug Reports</h2>
-    <div style="font-size:16px">
-        If you would like to suggest a feature or if you found a Bug,
         <br/>
-        please use the <a target="_blank" href="/issues">Issue Tracker</a> to submit them.
     </div>
-    <br/>
-    <h2>Contact</h2>
-    <div style="font-size:16px">
-        <strong>Do you still have questions?</strong>
+    <div>
+        <h2>Contributing</h2>
+        <div style="font-size:16px">
+            <strong>This project is open-source!</strong>
+            <br/>
+            All repositories for the API, Website and Fetcher are located
+            <a href="https://github.com/spigetorg" target="_blank">here.</a>
+        </div>
         <br/>
-        Join the IRC below or send an email to <a href="mailto:staff@spiget.org">staff@spiget.org</a>
+    </div>
+    <div>
+        <h2>Feature Requests <span class="text-muted">|</span> Bug Reports</h2>
+        <div style="font-size:16px">
+            If you would like to suggest a feature or if you found a Bug,
+            <br/>
+            please use the <a target="_blank" href="/issues">Issue Tracker</a> to submit them.
+        </div>
+        <br/>
+    </div>
+    <div>
+        <h2>Contact</h2>
+        <div style="font-size:16px">
+            <strong>Do you still have questions?</strong>
+            <br/>
+            Join the IRC below or send an email to <a href="mailto:staff@spiget.org">staff@spiget.org</a>
 
-        <iframe src="https://kiwiirc.com/client/irc.spi.gt/#spiget" style="border:0; width:100%; height:450px;"></iframe>
+            <iframe src="https://kiwiirc.com/client/irc.spi.gt/#spiget" style="border:0; width:100%; height:450px;"></iframe>
+        </div>
+        <br/>
     </div>
-    <br/>
     <div>
         <a class="twitter-timeline" href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017">Tweets about SpiGet</a>
     </div>
