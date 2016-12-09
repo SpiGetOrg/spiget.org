@@ -1,4 +1,4 @@
-angular.module("searchApp", []).controller("SearchController", function ($scope) {
+angular.module("searchApp", []).controller("SearchController", ["$scope", function ($scope) {
     var ctrl = this;
 
     ctrl.method = method;
@@ -93,4 +93,4 @@ angular.module("searchApp", []).controller("SearchController", function ($scope)
             ctrl.doSearch();
         }, 500);
     })();
-});
+}]);
