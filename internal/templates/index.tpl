@@ -82,7 +82,7 @@
         </div>
     </div>
     <div id="supporters_container">
-        <h1 id="supporters">Sponsors</h1>
+        <h1 id="supporters">Supporters</h1>
 
         <ul class="supporter-list">
             <li>
@@ -95,6 +95,12 @@
                 <div class="well well-sm supporter-container">
                     <a href="https://aternos.org" target="_blank" class="supporter-image-link"><img src="/img/aternos.png" width="128" height="128" class="supporter-image"></a>
                     <a class="supporter-title" href="https://aternos.org" target="_blank"><h2>Aternos.org</h2></a><a href="https://aternos.org" target="_blank"><strong>Aternos</strong></a> kindly provided the API Server for Spiget!
+                </div>
+            </li>
+            <li>
+                <div class="well well-sm">
+                    <a href="https://spiget.org/about"><img src="https://i.imgur.com/hP0fSUT.png" width="128" height="128"></a>
+                    <a href="mailto:staff@spiget.org"><strong>Do you want to be a supporter?</strong></a>
                 </div>
             </li>
         </ul>
