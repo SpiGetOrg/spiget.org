@@ -69,6 +69,10 @@
             <div id="user_agent_requests_graph"></div>
             <a href="#" id="user_agent_graph_expand">Click to expand Chart</a>
         </div>
+        <br/>
+        <div>
+            <a class="twitter-timeline"  href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017">Tweets about SpiGet</a>
+        </div>
     </div>
 {/block}
 
@@ -81,4 +85,15 @@
     <script src="/js/js-cookie.min.js"></script>
     <script src="/js/regression.js"></script>
     <script async src="/js/status.min.js?7"></script>
+    <script>
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+    </script>
 {/block}

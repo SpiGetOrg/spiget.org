@@ -47,4 +47,21 @@
 
         <iframe src="https://kiwiirc.com/client/irc.spi.gt/#spiget" style="border:0; width:100%; height:450px;"></iframe>
     </div>
+    <br/>
+    <div>
+        <a class="twitter-timeline"  href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017">Tweets about SpiGet</a>
+    </div>
+{/block}
+{block name="scripts"}
+    <script>
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+    </script>
 {/block}
