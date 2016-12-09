@@ -14,7 +14,7 @@ $(document).ready(function () {
             }
         });
         // Make the loading delay less noticeable
-        animateValue("#stat_daily_requests", 100000, 10000);
+        animateValue("#stat_daily_requests", 200000, 10000);
         $.ajax({
             url: "https://api.spiget.org/v2/metrics/requests/30?spiget__ua=SpigetStats&pretty=false&simple=true",
             dataType: "json",
