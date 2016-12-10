@@ -4,7 +4,7 @@ window.RequestsPerMinute = {
     queries: 0,
     getTotal: function (callback) {
         $.ajax({
-            url: "https://api.spiget.org/v2/metrics/requests/1?spiget__ua=SpigetRPM&callback=?",
+            url: "https://api.spiget.org/v2/metrics/requests/1?spiget___ua=SpigetRPM&callback=?",
             dataType: "jsonp",
             success: function (r) {
                 RequestsPerMinute.queries++;

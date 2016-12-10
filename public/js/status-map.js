@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#map").parent().removeClass("container");
-
+    
     function refreshSize() {
         if ($("#map").highcharts() !== undefined) {
             $("#map").highcharts().setSize($("#map").parent().width(), ($(document).height() - 200))
@@ -15,7 +15,7 @@ $(document).ready(function () {
     Alert.alert("info", "Loading Map...", true);
 
     $.ajax({
-        url: "https://api.spiget.org/v2/metrics/map/30?spiget__ua=SpigetStatusMap&callback=?",
+        url: "https://api.spiget.org/v2/metrics/map/30?spiget___ua=SpigetStatusMap&callback=?",
         dataType: "jsonp",
         success: function (data) {
             Alert.alert("info", "", false);

@@ -6,9 +6,9 @@ $(document).ready(function () {
     $("#api_version_selector").val(apiVersion);
 
     var urls = {
-        status: "https://api.spiget.org/v2/status?spiget__ua=SpigetStatus&callback=?",
-        spigot_status: "https://api.spiget.org/spigotStatus.php?spiget__ua=SpigetStatus&callback=?",
-        metrics: "https://api.spiget.org/" + apiVersion + "/metrics/requests/30?spiget__ua=SpigetStatus&pretty=false"
+        status: "https://api.spiget.org/v2/status?spiget___ua=SpigetStatus&callback=?",
+        spigot_status: "https://api.spiget.org/spigotStatus.php?spiget___ua=SpigetStatus&callback=?",
+        metrics: "https://api.spiget.org/" + apiVersion + "/metrics/requests/30?spiget___ua=SpigetStatus&pretty=false"
     };
     var constant = {
         page_size: 20,

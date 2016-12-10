@@ -1,7 +1,7 @@
 window.webhook = {
     loadEvents: function () {
         $.ajax({
-            url: "https://api.spiget.org/v2/webhook/events?spiget__ua=SpigetWebhooks&callback=?",
+            url: "https://api.spiget.org/v2/webhook/events?spiget___ua=SpigetWebhooks&callback=?",
             dataType: "jsonp",
             success: function (events) {
                 $.each(events.events, function (k, v) {
@@ -19,7 +19,7 @@ window.webhook = {
         $("#registerButton").prop("disabled", true);
         Alert.alert("info", "Testing connection...", true);
         $.ajax({
-            url: "https://tools.inventivetalent.org/connection/ping.php?spiget__ua=SpigetWebhooks&callback=?&method=POST&url=" + btoa(url),
+            url: "https://tools.inventivetalent.org/connection/ping.php?spiget___ua=SpigetWebhooks&callback=?&method=POST&url=" + btoa(url),
             dataType: "jsonp",
             success: function (r) {
                 if (r.success) {
@@ -50,7 +50,7 @@ window.webhook = {
         $("#webhookId").val("");
         $("#webhookSecret").val("");
         $.ajax({
-            url: "https://api.spiget.org/v2/webhook/register?spiget__ua=SpigetWebhooks&",
+            url: "https://api.spiget.org/v2/webhook/register?spiget___ua=SpigetWebhooks&",
             method: "POST",
             type: "POST",
             data: {
@@ -75,7 +75,7 @@ window.webhook = {
     remove: function (id, secret) {
         $("#removeButton").prop("disabled", true);
         $.ajax({
-            url: "https://api.spiget.org/v2/webhook/delete/" + id + "/" + secret + "?spiget__ua=SpigetWebhooks&",
+            url: "https://api.spiget.org/v2/webhook/delete/" + id + "/" + secret + "?spiget___ua=SpigetWebhooks&",
             // dataType : "jsonp",
             method: "POST",
             type: "POST",

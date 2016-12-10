@@ -1,7 +1,7 @@
 $(document).ready(function () {
     setTimeout(function () {
         $.ajax({
-            url: "https://api.spiget.org/v2/status?spiget__ua=SpigetStats&pretty=false&callback=?",
+            url: "https://api.spiget.org/v2/status?spiget___ua=SpigetStats&pretty=false&callback=?",
             dataType: "jsonp",
             success: function (r) {
                 resources = r.stats.resources;
@@ -16,7 +16,7 @@ $(document).ready(function () {
         // Make the loading delay less noticeable
         animateValue("#stat_daily_requests", 200000, 10000);
         $.ajax({
-            url: "https://api.spiget.org/v2/metrics/requests/30?spiget__ua=SpigetStats&pretty=false&simple=true",
+            url: "https://api.spiget.org/v2/metrics/requests/30?spiget___ua=SpigetStats&pretty=false&simple=true",
             dataType: "json",
             success: function (r) {
                 total = 0;
@@ -38,7 +38,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: "https://api.spiget.org/v2/resources/recentUpdates?spiget__ua=SpigetStats&size=16&pretty=false&callback=?",
+            url: "https://api.spiget.org/v2/resources/recentUpdates?spiget___ua=SpigetStats&size=16&pretty=false&callback=?",
             dataType: "jsonp",
             success: function (r) {
                 var counter = 0;
@@ -85,7 +85,7 @@ $(document).ready(function () {
             }
         });
         $.ajax({
-            url: "https://api.spiget.org/v2/authors/recentUpdates?spiget__ua=SpigetStats&size=16&pretty=false&callback=?",
+            url: "https://api.spiget.org/v2/authors/recentUpdates?spiget___ua=SpigetStats&size=16&pretty=false&callback=?",
             dataType: "jsonp",
             success: function (r) {
                 var counter = 0;
