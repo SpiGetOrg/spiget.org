@@ -85,6 +85,7 @@
     <script src="/js/js-cookie.min.js"></script>
     <script src="/js/regression.js"></script>
     <script async src="/js/status.min.js?7"></script>
+    <script src="https://platform.twitter.com/widgets.js"></script>
     <script>
         !function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
