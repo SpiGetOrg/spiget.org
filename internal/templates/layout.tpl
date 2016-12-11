@@ -2,7 +2,7 @@
 <html {block name="ngApp"}{/block}>
 <head>
     {block name="title"}
-        <title>Spiget | Spigot Resource and Author API</title>
+        <title>Spiget | API for Spigot Resources, Plugins and Authors</title>
     {/block}
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,9 +42,9 @@
         <!-- /Theme Color -->
 
         <!-- OG -->
-        <meta property="og:title" content="Spiget">
+        <meta property="og:title" content="Spiget | API for Spigot Resources, Plugins and Authors">
         {block name="og_site_name"}
-            <meta property="og:site_name" content="Spiget">
+            <meta property="og:site_name" content="Spiget | API for Spigot Resources, Plugins and Authors">
         {/block}
         <meta property="og:type" content="website">
         <meta property="og:image" content="/img/logo-text-centered-616x630.png">
@@ -52,7 +52,7 @@
         <meta property="og:url" content="https://spiget.org">
         <!-- Twitter -->
         {block name="twitter"}
-            <meta name="twitter:title" content="Spiget">
+            <meta name="twitter:title" content="Spiget | API for Spigot Resources, Plugins and Authors">
         {/block}
         <meta name="twitter:description" content="Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors">
         <meta name="twitter:url" content="https://spiget.org">
