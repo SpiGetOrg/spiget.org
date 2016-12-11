@@ -31,6 +31,7 @@
         <meta name="keywords" content="spiget,spigot,minecraft,server,bukkit,api,plugin,author,resource,spigotmc">
         <meta name="description" content="Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors">
         <meta name="author" content="inventivetalent">
+
         <!-- Theme Color (https://stackoverflow.com/questions/26960703/how-to-change-the-color-of-header-bar-and-address-bar-in-newest-android-chrome-v) -->
         <!-- Chrome, Firefox OS and Opera -->
         <meta name="theme-color" content="orange">
@@ -58,6 +59,8 @@
         <meta name="twitter:site" content="@Spiget_org">
         <meta name="twitter:creator" content="@Inventivtalent">
         <meta name="twitter:card" content="summary">
+
+        <meta name="robots" content="index, follow">
     {/block}
     {block name="meta"}
     {/block}
