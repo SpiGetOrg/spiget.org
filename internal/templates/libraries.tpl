@@ -49,8 +49,10 @@
     To submit your own Library, edit
     <!-- TODO: add link -->
     <a href="https://github.com/SpiGetOrg/spiget.org/blob/master/public/libraries/libraries.json" target="_blank">
-        <strong>this file on GitHub</strong> or <a href="https://twitter.com/intent/tweet?text=@Inventivtalent%20@spiget_org%20I%20want%20to%20submit%20a%20library%20for%20Spiget!">tweet @Inventivetalent</a>
+        <strong>this file on GitHub</strong>
     </a>
+    or
+    <a href="https://twitter.com/intent/tweet?text=@Inventivtalent%20@spiget_org%20I%20want%20to%20submit%20a%20library%20for%20Spiget!">tweet @Inventivetalent</a>
     and provide links to the source-code, a download and possibly an example :)
     <br/>
     <br/>
