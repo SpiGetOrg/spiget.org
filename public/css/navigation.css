@@ -3,11 +3,14 @@
     border-radius: 0 !important;
 }
 
-.navbar-collapse[aria-expanded="false"].nav-link {
+.nav-link {
     color: gray;
     font-family: "Open Sans";
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.navbar-collapse:not(.in):not(.collapsing)>ul>li>a.nav-link {
     top: 20px;
 }
 
