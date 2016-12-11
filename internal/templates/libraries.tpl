@@ -36,7 +36,7 @@
             {if isset($library.codeExample)}
                 <h3>Example Code</h3>
                 <pre>
-                <code class="external-code {$library.codeExample.language}" code-src="{$library.codeExample.url}"></code>
+                <code class="external-code {$library.codeExample.language}" data-code-src="{$library.codeExample.url}"></code>
             </pre>
             {/if}
             <hr/>
@@ -60,5 +60,5 @@
 
 {block name="scripts"}
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
-    <script src="/js/code-loader.min.js"></script>
+    <script src="/js/code-loader.min.js?1"></script>
 {/block}

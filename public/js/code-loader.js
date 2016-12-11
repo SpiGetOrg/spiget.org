@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         var $this = codes[n];
 
-        var src = $this.attr("code-src");
+        var src = $this.data("code-src");
         console.info("Loading " + src + "...");
         $.ajax({
             url: src,
