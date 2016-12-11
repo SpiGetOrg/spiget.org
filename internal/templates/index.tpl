@@ -26,12 +26,14 @@
         </div>
         <!-- End -->
 
-        <div id="main_buttons" style="margin:auto;top:45%;position:relative;">
+        <div id="main_buttons" style="margin:auto;top:45%;position:relative;text-shadow: 1px 1px black;">
             <br/>
             <button class="btn btn-success" data-toggle="modal" data-target="#tryit-modal">
                 <strong>Try It</strong>
             </button>
             <a href="/documentation" class="btn btn-primary">Documentation</a>
+            &nbsp;
+            <a href="/about" class="btn btn-primary">Learn More</a>
         </div>
     </div>
     <div id="stats">
