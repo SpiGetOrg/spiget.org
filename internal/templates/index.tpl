@@ -22,7 +22,7 @@
             <img style="
                  position:absolute;
                  right:-100%;
-                 " class="full-logo img-responsive" draggable="false" width="250" height="256" src="/img/logo-text-250x256.png">
+                 " class="full-logo img-responsive" draggable="false" width="250" height="256" src="/img/logo-text-250x256.png" alt="Spiget Logo">
         </div>
         <!-- End -->
 
@@ -89,19 +89,19 @@
         <ul class="supporter-list">
             <li>
                 <div class="well well-sm supporter-container">
-                    <a href="https://jetbrains.com" target="_blank" class="supporter-image-link"><img src="/img/logo_JetBrains_2.svg" width="128" height="128" class="supporter-image"></a>
+                    <a href="https://jetbrains.com" target="_blank" class="supporter-image-link"><img src="/img/logo_JetBrains_2.svg" width="128" height="128" class="supporter-image" alt="JetBrains Logo"></a>
                     <a class="supporter-title" href="https://jetbrains.com" target="_blank"><h2>JetBrains</h2></a><a href="https://jetbrains.com" target="_blank"><strong>JetBrains'</strong></a> awesome software is used to develop Spiget and was provided for free via their <a href="https://www.jetbrains.com/buy/opensource/">open-source license</a>!
                 </div>
             </li>
             <li>
                 <div class="well well-sm supporter-container">
-                    <a href="https://aternos.org" target="_blank" class="supporter-image-link"><img src="/img/aternos.png" width="128" height="128" class="supporter-image"></a>
+                    <a href="https://aternos.org" target="_blank" class="supporter-image-link"><img src="/img/aternos.png" width="128" height="128" class="supporter-image" alt="Aternos Logo"></a>
                     <a class="supporter-title" href="https://aternos.org" target="_blank"><h2>Aternos.org</h2></a><a href="https://aternos.org" target="_blank"><strong>Aternos</strong></a> kindly provided the API Server for Spiget!
                 </div>
             </li>
             <li>
                 <div class="well well-sm">
-                    <a href="https://spiget.org/about"><img src="https://i.imgur.com/hP0fSUT.png" width="128" height="128"></a>
+                    <a href="https://spiget.org/about"><img src="https://i.imgur.com/hP0fSUT.png" width="128" height="128" alt="?"></a>
                     <a href="mailto:staff@spiget.org"><strong>Do you want to be a supporter?</strong></a>
                 </div>
             </li>

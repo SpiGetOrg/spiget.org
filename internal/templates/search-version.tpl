@@ -33,7 +33,7 @@
                         <span class="glyphicon glyphicon-search"></span>&nbsp; Search
                     </button>
                     <input class="form-control" type="number" min="0" placeholder="Result Limit" ng-model="ctrl.limit" style="max-width:100px">
-                    <img class="loading-icon" src="/img/ajax-loader.gif" style="display:none;">
+                    <img class="loading-icon" src="/img/ajax-loader.gif" style="display:none;" alt="Loading...">
                     &nbsp; <strong>{{ctrl.resultSize}}</strong> Search Results
 
                     <button class="btn btn-primary pull-right" onclick="window.location = '/search'">
