@@ -39,6 +39,13 @@
                 <li class="{if $pageid=='about'}active{/if}">
                     <a class="nav-link" href="/about/" title="About this project">About</a>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" rol="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link" href="https://x.spiget.org" target="_blank">URL Shortener</a></li>
+                        <li><a class="nav-link" href="https://spiget.org/webhook">Webhook Editor</a></li>
+                    </ul>
+                </li>
 
                 <li>
                     <a class="nav-link" id="donate-link" href="https://donation.inventivetalent.org/spiget"
