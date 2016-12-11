@@ -2,7 +2,7 @@
 <html {block name="ngApp"}{/block}>
 <head>
     {block name="title"}
-        <title>Spiget | Spigot Resource &amp; Author API</title>
+        <title>Spiget | Spigot Resource and Author API</title>
     {/block}
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
