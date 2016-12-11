@@ -22,7 +22,7 @@
 
             &nbsp;
 
-            <a href="https://github.org/SpiGetOrg" target="_blank"><img src="/img/GitHub-Mark-32px.png" width="32" height="32" alt="GitHub"></a>
+            <a href="https://github.com/SpiGetOrg" target="_blank"><img src="/img/GitHub-Mark-32px.png" width="32" height="32" alt="GitHub"></a>
         </div>
         <div>
             {literal}
