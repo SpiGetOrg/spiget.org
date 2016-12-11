@@ -85,10 +85,12 @@
 
 {block name="body"}
     <body>
-    <div class="container content-container">
-        {block name="content"}
-        {/block}
-    </div>
+    {block name="content-container"}
+        <div class="container content-container">
+            {block name="content"}
+            {/block}
+        </div>
+    {/block}
 
     <!--
     _____       _  _____      _
