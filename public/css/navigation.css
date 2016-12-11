@@ -3,7 +3,7 @@
     border-radius: 0 !important;
 }
 
-.nav-link {
+.navbar-collapse[aria-expanded="false"].nav-link {
     color: gray;
     font-family: "Open Sans";
     font-weight: bold;
