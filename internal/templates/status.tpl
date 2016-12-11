@@ -86,5 +86,4 @@
     <script src="/js/js-cookie.min.js"></script>
     <script src="/js/regression.js"></script>
     <script async src="/js/status.min.js?7"></script>
-    <script src="https://platform.twitter.com/widgets.js"></script>
 {/block}

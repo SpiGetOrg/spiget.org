@@ -66,6 +66,3 @@
         <a class="twitter-timeline" href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017">Tweets about SpiGet</a>
     </div>
 {/block}
-{block name="scripts"}
-    <script src="https://platform.twitter.com/widgets.js"></script>
-{/block}
