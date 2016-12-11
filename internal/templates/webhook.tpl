@@ -43,7 +43,7 @@
 
         <strong>Example POST:</strong>
         <pre>
-		<code class="external-code json" code-src="/code/webhook-example-resource.txt"></code>
+		<code class="external-code json" data-code-src="/code/webhook-example-resource.txt"></code>
         </pre>
         <br/>
         <br/>
