@@ -11,7 +11,7 @@
 {block name="content"}
     <h1 class="page-header">About</h1>
     <div style="font-size: 16px">
-        Spig<span class="oe">e</span>t is a JSON Information API for Spig<span class="oe">o</span>t <strong>Resources</strong> and <strong>Authors</strong>
+        Spig<span class="oe">e</span>t is a JSON Information API for Spig<span class="oe">o</span>t <strong>Resources/Plugins</strong> and <strong>Authors</strong>
         <br/>
         The data is loaded and updated from the SpigotMC site every <span class="js-value" data-value="update-interval">2</span> hours.
         <br/>
