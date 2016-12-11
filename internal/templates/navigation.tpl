@@ -30,7 +30,7 @@
                     <a class="nav-link" href="/search/" title="Search for Resources and Authors">Search</a>
                 </li>
                 <li class="{if $pageid=='status'}active{/if}">
-                    <a class="nav-link" href="/status/" title="API Status and Statistics">Status</a>
+                    <a class="nav-link" href="/status/" title="API Status and Statistics">Status <span id="navigation-status-icon" class="glyphicon glyphicon-info-sign"></span></a>
                 </li>
                 <li class="{if $pageid=='libraries'}active{/if}">
                     <a class="nav-link" href="/libraries"
@@ -40,7 +40,7 @@
                     <a class="nav-link" href="/about/" title="About this project">About</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" rol="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="https://x.spiget.org" target="_blank">URL Shortener</a></li>
                         <li><a class="nav-link" href="https://spiget.org/webhook">Webhook Editor</a></li>

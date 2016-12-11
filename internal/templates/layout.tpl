@@ -129,6 +129,7 @@
 <script src="/js/js-cookie.min.js"></script>
 <script async src="/js/rpm.min.js"></script>
 <script async src="/js/cookiecounter.js"></script>
+<script async src="/js/navigation-status.min.js"></script>
 
 {literal}
     <script>
