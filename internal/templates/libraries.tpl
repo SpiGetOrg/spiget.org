@@ -9,26 +9,49 @@
 
 {block name="content"}
     <h1 class="page-header">Libraries</h1>
-    <!-- Java -->
-    <h2 id="Java">Java</h2>
-    <a href="https://github.com/InventivetalentDev/SpigetJavaClient/releases" target="_blank"><strong><span class="glyphicon glyphicon-arrow-down" style="color: orange;"></span> Download here</strong></a>
-    <br/>
-    <a href="https://github.com/InventivetalentDev/SpigetJavaClient" target="_blank"><strong><span class="glyphicon glyphicon-file" style="color:orange;"></span> Source</strong></a>
-    <br/>
-    <h3>Example Code</h3>
-    <pre>
-        <code class="external-code java" code-src="/code/java-api-example.txt"></code>
-    </pre>
-    <hr/>
-    <br/>
-    <!-- /Java -->
-
-
+    <div>
+        {foreach $libraries as $library}
+            <h2 id="{$library.name}">{$library.name}</h2>
+            {if isset($library.author)}
+                <strong>Author</strong>
+                &nbsp;
+                {if isset($library.author.url)}
+                    <a href="{$library.author.url}" target="_blank">
+                {/if}
+                {$library.author.name}
+                {if isset($library.author.url)}
+                    </a>
+                {/if}
+                <br/>
+                <br/>
+            {/if}
+            {if isset($library.download)}
+                <a href="{$library.download}" target="_blank"><strong><span class="glyphicon glyphicon-arrow-down" style="color: orange;"></span> Download here</strong></a>
+                <br/>
+            {/if}
+            {if isset($library.source)}
+                <a href="{$library.source}" target="_blank"><strong><span class="glyphicon glyphicon-file" style="color:orange;"></span> Source</strong></a>
+                <br/>
+            {/if}
+            {if isset($library.codeExample)}
+                <h3>Example Code</h3>
+                <pre>
+                <code class="external-code {$library.codeExample.language}" code-src="{$library.codeExample.url}"></code>
+            </pre>
+            {/if}
+            <hr/>
+            <br/>
+        {/foreach}
+    </div>
     <!-- Footer -->
     <br/>
     <h2>Submit your own Library/API</h2>
-    <a href="mailto:staff@spiget.org"><strong>Click here</strong></a>
-    to submit your own library. Please make sure to include a download link, the source link (Bitbucket / Github) and a code example.
+    To submit your own Library, edit
+    <!-- TODO: add link -->
+    <a href="#" target="_blank">
+        <strong>this file on GitHub</strong> or <a href="https://twitter.com/intent/tweet?text=@Inventivtalent%20@spiget_org%20I%20want%20to%20submit%20a%20library%20for%20Spiget!">tweet @Inventivetalent</a>
+    </a>
+    and provide links to the source-code, a download and possibly an example :)
     <br/>
     <br/>
 {/block}
