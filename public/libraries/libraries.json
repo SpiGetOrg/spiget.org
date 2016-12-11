@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Java",
+    "author": {
+      "name":"inventivetalent",
+      "url":"https://inventivetalent.org"
+    },
+    "source": "https://github.com/InventivetalentDev/SpigetJavaClient",
+    "download": "https://github.com/InventivetalentDev/SpigetJavaClient/releases",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://spiget.org/code/java-api-example.txt",
+      "language": "java"
+    }
+  }
+]

@@ -85,10 +85,12 @@
 
 {block name="body"}
     <body>
-    <div class="container content-container">
-        {block name="content"}
-        {/block}
-    </div>
+    {block name="content-container"}
+        <div class="container content-container">
+            {block name="content"}
+            {/block}
+        </div>
+    {/block}
 
     <!--
     _____       _  _____      _
@@ -123,7 +125,7 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/navigation.min.js"></script>
 <script src="/js/alert.min.js"></script>
-<script async src="/js/twitter-widget.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
 <script src="/js/js-cookie.min.js"></script>
 <script async src="/js/rpm.min.js"></script>
 <script async src="/js/cookiecounter.js"></script>
