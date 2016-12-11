@@ -29,7 +29,7 @@
 
     {block name="default_meta"}
         <meta name="keywords" content="spiget,spigot,minecraft,server,bukkit,api,plugin,author,resource,spigotmc">
-        <meta name="description" content="API to quickly and easily get information about Spigot plugins and authors">
+        <meta name="description" content="Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors">
         <meta name="author" content="inventivetalent">
         <!-- Theme Color (https://stackoverflow.com/questions/26960703/how-to-change-the-color-of-header-bar-and-address-bar-in-newest-android-chrome-v) -->
         <!-- Chrome, Firefox OS and Opera -->
@@ -47,13 +47,13 @@
         {/block}
         <meta property="og:type" content="website">
         <meta property="og:image" content="/img/logo-text-centered-616x630.png">
-        <meta property="og:description" content="API to quickly and easily get information about Spigot plugins and authors">
+        <meta property="og:description" content="Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors">
         <meta property="og:url" content="https://spiget.org">
         <!-- Twitter -->
         {block name="twitter"}
             <meta name="twitter:title" content="Spiget">
         {/block}
-        <meta name="twitter:description" content="API to quickly and easily get information about Spigot plugins and authors">
+        <meta name="twitter:description" content="Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors">
         <meta name="twitter:url" content="https://spiget.org">
         <meta name="twitter:site" content="@Spiget_org">
         <meta name="twitter:creator" content="@Inventivtalent">
