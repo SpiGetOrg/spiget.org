@@ -13,6 +13,12 @@ $(document).ready(function () {
             down: "red",
             updating: "#00b900"
         },
+        titles: {
+            checking: "Checking status...",
+            up: "Online",
+            down: "Offline",
+            updating: "Online, update running"
+        },
         uptimerobot: {
             apiKey: "m778205490-919fd9fee1f949d6918f8c05"// Monitor-Specific key, not really useful to copy ;)
         }
@@ -22,21 +28,25 @@ $(document).ready(function () {
             options.element.removeClass();
             options.element.css("color", options.colors.checking);
             options.element.addClass(options.icons.checking);
+            options.element.attr("title", options.titles.checking);
         },
         up: function () {
             options.element.removeClass();
             options.element.css("color", options.colors.up);
             options.element.addClass(options.icons.up);
+            options.element.attr("title", options.titles.up);
         },
         down: function () {
             options.element.removeClass();
             options.element.css("color", options.colors.down);
             options.element.addClass(options.icons.down);
+            options.element.attr("title", options.titles.down);
         },
         updating: function () {
             options.element.removeClass();
             options.element.css("color", options.colors.updating);
             options.element.addClass(options.icons.updating);
+            options.element.attr("title", options.titles.updating);
         }
     };
     window.navStatusDisplay = display;
