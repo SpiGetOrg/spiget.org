@@ -59,22 +59,22 @@ $(document).ready(function () {
                 });
 
                 /*
-                $(".new-res-author").each(function () {
-                    $this = $(this);
-                    var id = $this.attr("id");
-                    var resId = id.replace("new_res_author_", "");
-                    var url = "https://api.spiget.org/v2/resources/" + resId + "/author?callback=?";
-                    $.ajax({
-                        url: url,
-                        dataType: "jsonp",
-                        success: function (a) {
-                            elem = $("#" + id);
-                            elem.attr("href", "https://api.spiget.org/v2/authors/" + a.id + "/go");
-                            elem.text(a.username);
-                        }
-                    });
-                });
-                */
+                 $(".new-res-author").each(function () {
+                 $this = $(this);
+                 var id = $this.attr("id");
+                 var resId = id.replace("new_res_author_", "");
+                 var url = "https://api.spiget.org/v2/resources/" + resId + "/author?callback=?";
+                 $.ajax({
+                 url: url,
+                 dataType: "jsonp",
+                 success: function (a) {
+                 elem = $("#" + id);
+                 elem.attr("href", "https://api.spiget.org/v2/authors/" + a.id + "/go");
+                 elem.text(a.username);
+                 }
+                 });
+                 });
+                 */
 
                 if (counter === 0) {
                     $("#new-resources").append(//
