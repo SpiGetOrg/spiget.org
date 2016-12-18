@@ -19,21 +19,30 @@
         <div class="row">
             <div class="col-md-2"><!-- Placeholder --></div>
             <div class="col-md-7">
-                <div id="api-status-panel" class="panel panel-warning">
-                    <div class="panel-heading">
-                        <strong class="status-title">API</strong> | <span id="api-status">Unknown</span>
-                        <span class="pull-right"><a href="http://status.spiget.org?aff=38996" target="_blank" title="Website Uptime Monitoring"><img src="https://www.statuscake.com/App/button/index.php?Track=UQ279l6LKw&Days=30&Design=5" alt="Uptime"></a>&nbsp;
-                <select id="api_version_selector" title="Stats API Version">
-                    <option value="v1">https://api.spiget.org/v1</option>
-                    <option selected value="v2">https://api.spiget.org/v2</option>
-                </select>
-            </span>
+                <div id="api-status-panel" class="panel panel-warning container-fluid">
+                    <div class="panel-heading row">
+                        <div class="col-xs-8">
+                            <strong class="status-title">API</strong> | <span id="api-status">Unknown</span> | <a href="http://status.spiget.org/" target="_blank"><i>Details</i></a>
+                        </div>
+                        <div class="col-xs-4">
+                            <select id="api_version_selector" class="form-control" title="Stats API Version">
+                                <option value="v1">https://api.spiget.org/v1</option>
+                                <option selected value="v2">https://api.spiget.org/v2</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="collapse out" aria-expanded="false" id="spigot_status_collapse">
-                            <div class="panel panel-warning" id="spigot_status_panel">
-                                <div class="panel-heading">
-                                    <strong class="status-title">SpigotMC.org</strong> | <span id="spigot_status">Checking . . .</span><span class="pull-right"><a href="http://status.spigotmc.org" target="_blank"><i>Detailed Status</i></a></span>
+                            <div class="panel panel-warning container-fluid" id="spigot_status_panel">
+                                <div class="panel-heading row">
+                                    <div class="col-xs-9">
+                                        <strong class="status-title">SpigotMC.org</strong> | <span id="spigot_status">Checking . . .</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                      <span class="pull-right">
+                                            <a href="http://status.spigotmc.org" target="_blank"><i>Detailed Status</i></a>
+                                      </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
