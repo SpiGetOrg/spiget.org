@@ -8,9 +8,6 @@
 <!-- Alerts end -->
 <footer class="footer">
     <div class="container">
-        <div class="text-muted" title="Requests per Minute" style="position:absolute;left:4px;bottom:2px;">
-            RPM: <strong><span class="rpm-display blink">0</span></strong>
-        </div>
         <div class="navbar-text pull-left">
             <p>
                 Created &amp; Maintained by <strong><a href="https://inventivetalent.org?ref=spiget">inventivetalent</a></strong> &nbsp;&nbsp; <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a> | <a href="https://inventivetalent.org/terms">Imprint</a>
