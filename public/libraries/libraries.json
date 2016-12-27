@@ -9,7 +9,7 @@
     "download": "https://github.com/InventivetalentDev/SpigetJavaClient/releases",
     "apiVersion": "v2",
     "codeExample": {
-      "url": "https://spiget.org/code/java-api-example.txt",
+      "url": "https://raw.githubusercontent.com/InventivetalentDev/SpigetJavaClient/master/example-request.java",
       "language": "java"
     }
   }
