@@ -18,7 +18,7 @@
         <div class="col-md-4">
             <div class="navbar-text">
                 <p>
-                    <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a> | <a href="https://inventivetalent.org/terms">Imprint</a>
+                    <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a> | <a href="https://inventivetalent.org/#imprint">Imprint</a>
                 </p>
             </div>
         </div>
