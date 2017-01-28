@@ -11,7 +11,52 @@
 {/block}
 
 {block name="style"}
-    <link rel="stylesheet" href="/css/status.min.css">
+    <style>
+        .server {
+            display: inline-block;
+            margin: 8px;
+            border-radius: 100% !important;
+            width: 60px;
+            height: 60px;
+            font-size: 40px;
+            line-height: 66.5px;
+            text-align: center;
+
+            border: 2px solid white;
+        }
+
+        .server.mode-master {
+            border: 2px solid black;
+        }
+
+        .server.mode-slave {
+            border: 2px solid lightgray;
+        }
+
+        .server .glyphicon {
+        }
+
+        .fetcher-status {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .fetcher-status .fetcher-updating {
+            color: orange;
+        }
+
+        .fetcher-status .fetcher-updated {
+            color: green;
+        }
+
+        .fetcher-details {
+            font-size: 16px;
+        }
+
+        .fetcher-details .time {
+            color: orange;
+        }
+    </style>
 {/block}
 
 {block name="content-container"}
@@ -19,70 +64,38 @@
         <div class="row">
             <div class="col-md-2"><!-- Placeholder --></div>
             <div class="col-md-7">
+                <h1 class="page-header">Status</h1>
+
                 <div id="api-status-panel" class="panel panel-warning container-fluid">
                     <div class="panel-heading row">
-                        <div class="col-xs-8">
-                            <strong class="status-title">API</strong> | <span id="api-status">Unknown</span> | <a href="http://status.spiget.org/" target="_blank"><i>Details</i></a>
+                        <div class="col-xs-10">
+                            <strong class="status-title">API</strong> | <span id="api-status">Unknown</span>
                         </div>
-                        <div class="col-xs-4">
-                            <select id="api_version_selector" class="form-control" title="Stats API Version">
-                                <option value="v1">https://api.spiget.org/v1</option>
-                                <option selected value="v2">https://api.spiget.org/v2</option>
-                            </select>
+                        <div class="col-xs-2">
+                            <a href="http://status.spiget.org/" target="_blank" class="pull-right"><strong>Details</strong></a>
                         </div>
                     </div>
                     <div class="panel-body">
-                        <div class="collapse out" aria-expanded="false" id="spigot_status_collapse">
-                            <div class="panel panel-warning container-fluid" id="spigot_status_panel">
-                                <div class="panel-heading row">
-                                    <div class="col-xs-9">
-                                        <strong class="status-title">SpigotMC.org</strong> | <span id="spigot_status">Checking . . .</span>
-                                    </div>
-                                    <div class="col-xs-3">
-                                      <span class="pull-right">
-                                            <a href="http://status.spigotmc.org" target="_blank"><i>Detailed Status</i></a>
-                                      </span>
-                                    </div>
-                                </div>
+                        <div id="serverContainer">
+                            <!-- Placeholder -->
+                        </div>
+                        <hr/>
+                        <div>
+                            <div class="fetcher-status" id="fetcher-status">
+                                Checking Fetcher Status...
+                            </div>
+                            <div class="fetcher-details" id="fetcher-details">
                             </div>
                         </div>
                         <hr/>
-                        <div class="collapse out" aria-expanded="false" id="fetch_status_collapse">
-                            <div class="fetch_status">
-                                <h2>The API is <span id="fetch_status_fetching">Unknown</span></h2>
-                                <br/>
-                                <div id="fetch_status_lastUpdate_container" style="display:none;">
-                                    It was last updated on <span id="fetch_status_lastUpdate" class="date"></span>
-                                    <br/>
-                                    It will update again in <span id="fetch_status_nextUpdate" class="hour">00:00</span><span id="fetch_status_nextUpdate_detail" class="hour" style="display:none;">00:00</span>
-                                </div>
-                                <div id="fetch_status_done_container" style="display:none;">
-                                    It will be done in about <span id="fetch_status_done" class="hour">00:00</span><span id="fetch_status_done_detail" class="hour" style="display:none;">00:00</span>
-                                </div>
-
-                                <!--
-                                <br>
-                                <div class="alert alert-info">
-                                The request tracker is currently being updated, so the data on here might look a bit messy at the moment :)
-                                </div>
-                                -->
-                            </div>
+                        <div>
+                            <div id="daily_requests_graph"></div>
+                            <hr/>
+                            <div id="user_agent_requests_graph"></div>
                         </div>
-                    </div>
-                    <div class="collapse out" aria-expanded="false" id="daily_requests_collapse">
-                        <hr/>
-                        <div id="daily_requests_graph"></div>
-                    </div>
-                    <div class="collapse out" aria-expanded="false" id="method_requests_collapse">
-                        <hr/>
-                        <div id="method_requests_graph"></div>
-                    </div>
-                    <div class="collapse out" aria-expanded="false" id="user_agent_requests_collapse">
-                        <hr/>
-                        <div id="user_agent_requests_graph"></div>
-                        <a href="#" id="user_agent_graph_expand">Click to expand Chart</a>
                     </div>
                 </div>
+
             </div>
             <div class="col-md-3">
                 <a class="twitter-timeline" href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017" data-height="1500" data-width="400">Tweets about SpiGet</a>
@@ -99,5 +112,12 @@
     <script src="/js/moment-duration.min.js"></script>
     <script src="/js/js-cookie.min.js"></script>
     <script src="/js/regression.js"></script>
-    <script async src="/js/status.min.js?7"></script>
+    <script src="/js/status.js"></script>
+    <script>
+        $(document).ready(function () {
+            window.SpigetStatus.checkServers();
+            window.SpigetStatus.checkFetcher();
+            window.SpigetStatus.drawCharts();
+        });
+    </script>
 {/block}
