@@ -172,9 +172,8 @@ window.SpigetStatus = {
             return s;
         };
 
-        //TODO: update metrics url
         $.ajax({
-            url: "https://api.spiget.org/v2/metrics/requests-new/30",
+            url: "https://api.spiget.org/v2/metrics/requests/30",
             dataType: "jsonp",
             success: function (response) {
                 console.log(response)
