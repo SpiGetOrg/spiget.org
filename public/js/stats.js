@@ -31,8 +31,7 @@ $(document).ready(function () {
                 avg = (total > 0 && count > 0) ? total / count : 0;
                 rounded = Math.round(avg);
 
-                $("#stat_daily_requests").stop();
-                animateValue("#stat_daily_requests", rounded, 1500);
+                animateValue("#stat_daily_requests", rounded, 2500);
             }
         });
         $.ajax({
