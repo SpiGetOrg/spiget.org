@@ -131,7 +131,7 @@
 {/block}
 
 {block name="scripts"}
-    <script async src="/js/stats.min.js"></script>
+    <script async src="/js/stats.min.js?1"></script>
     <script async src="/js/eo.min.js"></script>
     <script async src="/js/bootstrap3-typeahead.min.js"></script>
     <script async src="/js/tryit-modal.min.js"></script>

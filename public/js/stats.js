@@ -46,11 +46,14 @@ $(document).ready(function () {
                     if (isArray(resource))
                         return;
                     counter += 1;
-                    $("#new-resources").append(//
-                        "<li>" + //
+                    var element = $(//
+                        "<li style='display: none;'>" + //
                         "	<a target='_blank' href='https://r.spiget.org/" + resource.id + "'>" + resource.name + "<span class='new-res-extra text-muted' id='new_res_extra_" + resource.id + "'></span></a>" + //
                         "	<a class='new-res-author text-muted pull-right' id='new_res_author_" + resource.id + "' target='_blank' href='#'></a>" + //
-                        "</li>");
+                        "</li>").appendTo("#new-resources");
+                    setTimeout(function () {
+                        element.fadeIn();
+                    }, (index + 1) * 100);
 
                     if (resource.updateDate === resource.releaseDate) {
                         $("#new_res_extra_" + resource.id).attr("title", "New Resource");
@@ -93,10 +96,13 @@ $(document).ready(function () {
                     if (isArray(author))
                         return;
                     counter += 1;
-                    $("#new-authors").append(//
-                        "<li>" + //
+                    var element = $(//
+                        "<li style='display: none;'>" + //
                         "	<a target='_blank' href='https://a.spiget.org/" + author.id + "'>" + author.name + "</a>" + //
-                        "</li>");
+                        "</li>").appendTo("#new-authors");
+                    setTimeout(function () {
+                        element.fadeIn();
+                    }, (index + 1) * 100);
                 });
                 if (counter === 0) {
                     $("#new-authors").append(//

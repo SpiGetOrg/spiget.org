@@ -8,25 +8,29 @@
 <!-- Alerts end -->
 <footer class="footer">
     <div class="container">
-        <div class="navbar-text pull-left">
-            <p>
-                Created &amp; Maintained by <strong><a href="https://inventivetalent.org?ref=spiget">inventivetalent</a></strong> &nbsp;&nbsp; <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a> | <a href="https://inventivetalent.org/terms">Imprint</a>
-            </p>
+        <div class="col-md-4">
+            <div class="navbar-text">
+                <p>
+                    Created &amp; Maintained by <strong><a href="https://inventivetalent.org?ref=spiget">inventivetalent</a></strong>
+                </p>
+            </div>
         </div>
-        <div class="navbar-text pull-right hidden-sm">
-            <a href="https://twitter.com/Spiget_org" class="twitter-follow-button" data-show-count="false">Follow @Spiget</a>
-            <a href="https://twitter.com/Inventivtalent" class="twitter-follow-button" data-show-count="false">Follow @inventivetalent</a>
-
-            &nbsp;
-
-            <a href="https://github.com/SpiGetOrg" target="_blank"><img src="/img/GitHub-Mark-32px.png" width="32" height="32" alt="GitHub"></a>
+        <div class="col-md-4">
+            <div class="navbar-text">
+                <p>
+                    <a href="https://spiget.org/legal/terms">Terms of Service</a> | <a href="https://spiget.org/legal/privacy">Privacy Policy</a> | <a href="https://inventivetalent.org/#imprint">Imprint</a>
+                </p>
+            </div>
         </div>
-        <div>
-            {literal}
-                <a style="position:absolute;right:4px;bottom:2px;"
-                   href="javascript:(function(){var css='html {-webkit-filter: invert(100%);'+'-moz-filter: invert(100%);'+'-o-filter: invert(100%);'+'-ms-filter: invert(100%); }',head=document.getElementsByTagName('head')[0],style=document.createElement('style');if(!window.counter){window.counter=1;}else{window.counter++;if(window.counter%2==0){var css='html {-webkit-filter: invert(0%); -moz-filter: invert(0%); -o-filter: invert(0%); -ms-filter: invert(0%); }'}};style.type='text/css';if(style.styleSheet){style.styleSheet.cssText=css;}else{style.appendChild(document.createTextNode(css));}head.appendChild(style);})();"
-                   id="invertColors">Invert Colors!</a>
-            {/literal}
+        <div class="col-md-4">
+            <div class="navbar-text">
+                <a href="https://twitter.com/Spiget_org" class="twitter-follow-button" data-show-count="false">Follow @Spiget</a>
+                <a href="https://twitter.com/Inventivtalent" class="twitter-follow-button" data-show-count="false">Follow @inventivetalent</a>
+
+                &nbsp;
+
+                <a href="https://github.com/SpiGetOrg" target="_blank"><img src="/img/GitHub-Mark-32px.png" width="32" height="32" alt="GitHub"></a>
+            </div>
         </div>
     </div>
 </footer>
