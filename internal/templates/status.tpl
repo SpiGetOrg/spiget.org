@@ -119,42 +119,6 @@
                 color: "aqua",
                 url: "https://aqua.api.spiget.org",
                 apiKey: "m778498607-51f8a0a2cba2102642c5264c"
-            },
-            {
-                name: "orange",
-                color: "orange",
-                url: "https://orange.api.spiget.org",
-                apiKey: undefined
-            },
-            {
-                name: "cyan",
-                color: "cyan",
-                url: "https://cyan.api.spiget.org",
-                apiKey: undefined
-            },
-            {
-                name: "black",
-                color: "black",
-                url: "https://black.api.spiget.org",
-                apiKey: undefined
-            },
-            {
-                name: "purple",
-                color: "purple",
-                url: "https://purple.api.spiget.org",
-                apiKey: undefined
-            },
-            {
-                name: "turquoise",
-                color: "turquoise",
-                url: "https://turquoise.api.spiget.org",
-                apiKey: undefined
-            },
-            {
-                name: "violet",
-                color: "violet",
-                url: "https://violet.api.spiget.org",
-                apiKey: undefined
             }
         ];
     </script>
