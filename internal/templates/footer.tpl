@@ -11,7 +11,7 @@
         <div class="col-md-4">
             <div class="navbar-text">
                 <p>
-                    Created &amp; Maintained by <strong><a href="https://inventivetalent.org?ref=spiget">inventivetalent</a></strong>
+                    Created &amp; Maintained by <strong><a href="https://inventivetalent.org/?utm_source=spiget&utm_medium=author_link">inventivetalent</a></strong>
                 </p>
             </div>
         </div>
