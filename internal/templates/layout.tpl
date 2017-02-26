@@ -47,7 +47,7 @@
             <meta property="og:site_name" content="Spiget | API for Spigot Resources, Plugins and Authors">
         {/block}
         <meta property="og:type" content="website">
-        <meta property="og:image" content="/img/logo-text-centered-616x630.png">
+        <meta property="og:image" content="https://spiget.org/img/logo-text-centered-616x630.png">
         <meta property="og:description" content="Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors">
         <meta property="og:url" content="https://spiget.org">
         <!-- Twitter -->
