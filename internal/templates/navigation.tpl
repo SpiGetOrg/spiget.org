@@ -43,6 +43,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a class="nav-link" href="https://x.spiget.org" target="_blank">URL Shortener</a></li>
+                        <li><a class="nav-link" href="https://badges.spiget.org" target="_blank">Badges</a></li>
                         <li><a class="nav-link" href="https://spiget.org/webhook">Webhook Editor</a></li>
                     </ul>
                 </li>
