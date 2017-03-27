@@ -98,7 +98,7 @@
 
             </div>
             <div class="col-md-3">
-                <a class="twitter-timeline" href="https://twitter.com/search?q=SpiGet" data-widget-id="807343265355862017" data-height="1500" data-width="400">Tweets about SpiGet</a>
+                <a class="twitter-timeline" href="https://twitter.com/search?q=%40spiget_org%20OR%20spiget.org" data-widget-id="846360169080655872" data-height="1500" data-width="400">Tweets about SpiGet</a>
             </div>
         </div>
     </div>
