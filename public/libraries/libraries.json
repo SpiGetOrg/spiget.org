@@ -13,6 +13,20 @@
          "language":"java"
       }
    },
+   {
+      "name":" PHP",
+      "author":{
+         "name":"GamePanel.io",
+         "url":"https://gamepanel.io/"
+      },
+      "source":"https://github.com/gamepanelio/spiget-api-php",
+      "download":"https://github.com/gamepanelio/spiget-api-php/releases",
+      "apiVersion":"v2",
+      "codeExample":{
+         "url":"https://gist.githubusercontent.com/InventivetalentDev/906331f42e1151b212270448c4ec593d/raw/e27abf4fc33a61b4e46551a494b563dc3192d87b/GPIO%2520Spiget%2520Example.php",
+         "language":"php"
+      }
+   },
    {  
       "name":" PHP",
       "author":{  
