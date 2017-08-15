@@ -1,44 +1,44 @@
-[  
-   {  
-      "name":"Java",
-      "author":{  
-         "name":"inventivetalent",
-         "url":"https://inventivetalent.org"
-      },
-      "source":"https://github.com/InventivetalentDev/SpigetJavaClient",
-      "download":"https://github.com/InventivetalentDev/SpigetJavaClient/releases",
-      "apiVersion":"v2",
-      "codeExample":{  
-         "url":"https://raw.githubusercontent.com/InventivetalentDev/SpigetJavaClient/master/example-request.java",
-         "language":"java"
-      }
-   },
-   {
-      "name":" PHP",
-      "author":{
-         "name":"GamePanel.io",
-         "url":"https://gamepanel.io/"
-      },
-      "source":"https://github.com/gamepanelio/spiget-api-php",
-      "download":"https://github.com/gamepanelio/spiget-api-php/releases",
-      "apiVersion":"v2",
-      "codeExample":{
-         "url":"https://gist.githubusercontent.com/InventivetalentDev/906331f42e1151b212270448c4ec593d/raw/e27abf4fc33a61b4e46551a494b563dc3192d87b/GPIO%2520Spiget%2520Example.php",
-         "language":"php"
-      }
-   },
-   {
-      "name":" PHP",
-      "author":{  
-         "name":"Camouflage100",
-         "url":"https://www.cwolfe.pro"
-      },
-      "source":"https://gist.github.com/Camouflage100/2e4b44bba752525359bf097f0ea8fb0c",
-      "download":"https://gist.githubusercontent.com/Camouflage100/2e4b44bba752525359bf097f0ea8fb0c/raw/bfe895e0835d7fb0a361c58dbb771a1ccb846248/SpigetAPI.php",
-      "apiVersion":"v2",
-      "codeExample":{  
-         "url":"https://gist.githubusercontent.com/Camouflage100/f358d14dda97998a92a12a1bdc6328cd/raw/581c879ed93b54bf061e70035953305ab0dcea88/SpiGetAPI%2520PHP%2520Example",
-         "language":"php"
-      }
-   }
+[
+  {
+    "name": "Java",
+    "author": {
+      "name": "inventivetalent",
+      "url": "https://inventivetalent.org"
+    },
+    "source": "https://github.com/InventivetalentDev/SpigetJavaClient",
+    "download": "https://github.com/InventivetalentDev/SpigetJavaClient/releases",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://raw.githubusercontent.com/InventivetalentDev/SpigetJavaClient/master/example-request.java",
+      "language": "java"
+    }
+  },
+  {
+    "name": " PHP",
+    "author": {
+      "name": "GamePanel.io",
+      "url": "https://gamepanel.io/"
+    },
+    "source": "https://github.com/gamepanelio/spiget-api-php",
+    "download": "https://github.com/gamepanelio/spiget-api-php/releases",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://gist.githubusercontent.com/InventivetalentDev/906331f42e1151b212270448c4ec593d/raw/e27abf4fc33a61b4e46551a494b563dc3192d87b/GPIO%2520Spiget%2520Example.php",
+      "language": "php"
+    }
+  },
+  {
+    "name": " PHP",
+    "author": {
+      "name": "Camouflage100",
+      "url": "https://www.cwolfe.pro"
+    },
+    "source": "https://gist.github.com/Camouflage100/2e4b44bba752525359bf097f0ea8fb0c",
+    "download": "https://gist.githubusercontent.com/Camouflage100/2e4b44bba752525359bf097f0ea8fb0c/raw/bfe895e0835d7fb0a361c58dbb771a1ccb846248/SpigetAPI.php",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://gist.githubusercontent.com/Camouflage100/f358d14dda97998a92a12a1bdc6328cd/raw/581c879ed93b54bf061e70035953305ab0dcea88/SpiGetAPI%2520PHP%2520Example",
+      "language": "php"
+    }
+  }
 ]
