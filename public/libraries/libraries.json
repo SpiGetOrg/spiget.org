@@ -28,6 +28,20 @@
     }
   },
   {
+    "name": " Java ",
+    "author": {
+      "name": "CodedByYou",
+      "url": "https://github.com/CodedByYou"
+    },
+    "source": "https://github.com/CodedByYou/Spiget",
+    "download": "https://github.com/CodedByYou/Spiget/tree/master/Releases",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://raw.githubusercontent.com/CodedByYou/Spiget/master/example.java",
+      "language": "java"
+    }
+  },
+  {
     "name": " PHP",
     "author": {
       "name": "Camouflage100",
