@@ -22,7 +22,7 @@
             <img style="
                  position:absolute;
                  right:-100%;
-                 " class="full-logo img-responsive" draggable="false" width="250" height="256" src="/img/logo-text-250x256.png" alt="Spiget Logo">
+                 " class="full-logo img-responsive" draggable="false" width="250" height="256" src="/img/logo-text-x256.png" alt="Spiget Logo">
         </div>
         <!-- End -->
 
