@@ -60,9 +60,18 @@
                     <div style="font-size:16px">
                         <strong>Do you still have questions?</strong>
                         <br/>
-                        Join the IRC below or send an email to <a href="mailto:staff@spiget.org">staff@spiget.org</a>
+                        Join the Discord or IRC below
 
-                        <iframe src="https://kiwiirc.com/client/irc.spi.gt/#spiget" style="border:0; width:100%; height:450px;"></iframe>
+                       <div>
+                           <br/>
+                           <div>
+                               <iframe src="https://discordapp.com/widget?id=338633408156663808&theme=light" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+                           </div>
+                           <br/>
+                           <div>
+                               <iframe src="https://kiwiirc.com/client/irc.spi.gt/#spiget" style="border:0; width:100%; height:450px;"></iframe>
+                           </div>
+                       </div>
                     </div>
                     <br/>
                 </div>
