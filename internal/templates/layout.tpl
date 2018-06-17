@@ -75,8 +75,11 @@
                 theme: "dark-floating"
             };
         </script>
+        <!-- End Cookie Consent plugin -->
+
+        <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+        <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
     {/literal}
-    <!-- End Cookie Consent plugin -->
 
 </head>
 {block name="navigation"}

@@ -49,8 +49,8 @@
                 </li>
 
                 <li>
-                    <a class="nav-link" id="donate-link" href="https://donation.inventivetalent.org/spiget"
-                       title="Donate to keep this project running!" target="_blank">Donate ❤</a>
+                    <a class="nav-link custom-dbox-popup" id="donate-link" href="https://donorbox.org/spiget"
+                       title="Donate to keep this project running!">Donate ❤</a>
                 </li>
             </ul>
         </div>
