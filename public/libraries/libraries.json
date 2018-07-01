@@ -54,5 +54,19 @@
       "url": "https://gist.githubusercontent.com/cbwolfe32/f358d14dda97998a92a12a1bdc6328cd/raw/581c879ed93b54bf061e70035953305ab0dcea88/SpiGetAPI%2520PHP%2520Example",
       "language": "php"
     }
+  },
+  {
+    "name": " PHP",
+    "author": {
+      "name": "Th3Shadowbroker",
+      "url": "https://m4taiori.de/"
+    },
+    "source": "https://github.com/Th3Shadowbroker/Spiget4PHP/",
+    "download": "https://github.com/Th3Shadowbroker/Spiget4PHP/releases",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://gist.githubusercontent.com/Th3Shadowbroker/2d5593dec2c3590b3e2b4eb2ca6b072c/raw/c5cd46982aa35b133a6d62ff4c2a27ef22563590/Spiget4PHP-Example.php",
+      "language": "php"
+    }
   }
 ]
