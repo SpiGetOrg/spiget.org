@@ -64,6 +64,8 @@
     {block name="meta"}
     {/block}
 
+    <meta name="flattr:id" content="okelw0">
+
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     {literal}
         <script type="text/javascript">
