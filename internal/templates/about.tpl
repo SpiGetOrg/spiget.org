@@ -65,7 +65,7 @@
                        <div>
                            <br/>
                            <div>
-                               <iframe src="https://discordapp.com/widget?id=338633408156663808&theme=light" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+                               <iframe src="https://discordapp.com/widget?id=398243219961413653&theme=light" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
                            </div>
                            <br/>
                            <div>
