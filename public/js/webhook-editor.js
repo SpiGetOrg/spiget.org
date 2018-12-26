@@ -2,7 +2,7 @@ window.webhook = {
     loadEvents: function () {
         $.ajax({
             url: "https://api.spiget.org/v2/webhook/events?spiget___ua=SpigetWebhooks&callback=?",
-            dataType: "jsonp",
+
             success: function (events) {
                 $.each(events.events, function (k, v) {
                     $("#events_group").append("<input type='checkbox' class='webhook-event' value='" + v + "'> " + v + "<br/>");
@@ -20,7 +20,7 @@ window.webhook = {
         Alert.alert("info", "Testing connection...", true);
         $.ajax({
             url: "https://tools.inventivetalent.org/connection/ping.php?spiget___ua=SpigetWebhooks&callback=?&method=POST&url=" + btoa(url),
-            dataType: "jsonp",
+
             success: function (r) {
                 if (r.success) {
                     $("#registerButton").prop("disabled", false);

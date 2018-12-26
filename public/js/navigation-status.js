@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     $.ajax({
         url: "https://api.uptimerobot.com/getMonitors?format=json&apiKey=" + options.uptimerobot.apiKey,
-        dataType: "jsonp",
+
         jsonpCallback: "jsonUptimeRobotApi",
         success: function (response) {
             console.log(response);
@@ -83,7 +83,7 @@ $(document).ready(function () {
             // Check if an update is running
             $.ajax({
                 url: "https://api.spiget.org/v2/status?callback=?",
-                dataType: "jsonp",
+
                 success: function (status) {
                     console.log(status)
                     if (status.status.fetch.active) {// update is running

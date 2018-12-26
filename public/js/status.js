@@ -79,7 +79,6 @@ window.SpigetStatus = {
             if (server.url) {
                 $.ajax({
                     url: server.url + "/v2/status?callback=?",
-                    dataType: "jsonp",
                     success: function (response) {
                         serverElement.addClass("mode-" + response.status.server.mode);
                     }
@@ -103,7 +102,6 @@ window.SpigetStatus = {
     checkFetcher: function () {
         $.ajax({
             url: "https://api.spiget.org/v2/status",
-            dataType: "jsonp",
             success: function (response) {
                 if (response.status.fetch.active) {
                     $("#fetcher-status").html("The API is <span class='fetcher-updating'>currently updating</span>");
@@ -131,7 +129,6 @@ window.SpigetStatus = {
 
         $.ajax({
             url: "https://api.spiget.org/v2/metrics/requests/30",
-            dataType: "jsonp",
             success: function (response) {
                 console.log(response)
 

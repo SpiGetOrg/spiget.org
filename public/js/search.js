@@ -22,7 +22,7 @@ angular.module("searchApp", []).controller("SearchController", ["$scope", functi
             ctrl.resultSize = 0;
             $.ajax({
                 url: "https://api.spiget.org/v2/search/" + ctrl.type + "/" + ctrl.query + "?spiget___ua=SpigetSearch&size=" + ctrl.limit + "&callback=?",
-                dataType: "jsonp",
+
                 success: function (r) {
                     $(".loading-icon").fadeOut();
                     Alert.alert("success", "", false);

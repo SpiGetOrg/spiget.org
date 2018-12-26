@@ -31,7 +31,7 @@ $("#submit-button").click(function (e) {
         path = path + "callback=?";
         $.ajax({
             url: path,
-            dataType: "jsonp",
+
             success: function (r) {
                 $("#result").html("<pre>" + JSON.stringify(r, null, 4) + "</pre>");
             },

@@ -2,7 +2,7 @@ $(document).ready(function () {
     setTimeout(function () {
         $.ajax({
             url: "https://api.spiget.org/v2/status?spiget___ua=SpigetStats&pretty=false&callback=?",
-            dataType: "jsonp",
+
             success: function (r) {
                 resources = r.stats.resources;
                 authors = r.stats.authors;
@@ -36,7 +36,7 @@ $(document).ready(function () {
         });
         $.ajax({
             url: "https://api.spiget.org/v2/resources/recentUpdates?spiget___ua=SpigetStats&size=16&pretty=false&callback=?",
-            dataType: "jsonp",
+
             success: function (r) {
                 var counter = 0;
                 $.each(r, function (index, resource) {
@@ -69,7 +69,7 @@ $(document).ready(function () {
                  var url = "https://api.spiget.org/v2/resources/" + resId + "/author?callback=?";
                  $.ajax({
                  url: url,
-                 dataType: "jsonp",
+
                  success: function (a) {
                  elem = $("#" + id);
                  elem.attr("href", "https://api.spiget.org/v2/authors/" + a.id + "/go");
@@ -89,7 +89,7 @@ $(document).ready(function () {
         });
         $.ajax({
             url: "https://api.spiget.org/v2/authors/recentUpdates?spiget___ua=SpigetStats&size=16&pretty=false&callback=?",
-            dataType: "jsonp",
+
             success: function (r) {
                 var counter = 0;
                 $.each(r, function (index, author) {
