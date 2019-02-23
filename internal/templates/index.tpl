@@ -106,6 +106,9 @@
                 </div>
             </li>
         </ul>
+        <br/>
+        <br/>
+        <a href="https://www.patreon.com/bePatron?u=554075" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     </div>
     <!-- TryIt Modal -->
     <div class="modal fade" id="tryit-modal" role="dialog">
