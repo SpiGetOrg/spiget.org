@@ -156,6 +156,15 @@
             Cookies.set("v2ReleaseInfoSeen", "true", {expires: 356});
         });
     </script>
+    <script>
+        window.DOP_config = {
+            links: { // Replace with your links
+                paypal: "https://paypal.me/inventivetalent",
+                patreon: "https://patreon.com/inventivetalent"
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/InventivetalentDev/DonationPopup@master/DonationPopup.min.js"></script>
 {/literal}
 
 {block name="scripts"}
