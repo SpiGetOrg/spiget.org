@@ -110,8 +110,6 @@
 
             </div>
             <div class="col-md-3">
-                <a class="twitter-timeline" href="https://twitter.com/search?q=%40spiget_org%20OR%20spiget.org%20OR%20%23SpiGet" data-widget-id="846360169080655872" data-height="1500" data-width="400">Tweets about SpiGet</a>
-                <br/>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- spiget status sidebar right -->
                 <ins class="adsbygoogle"
@@ -123,6 +121,10 @@
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
+
+                <br/>
+
+                <a class="twitter-timeline" data-width="400" data-height="1500" href="https://twitter.com/spiget_org?ref_src=twsrc%5Etfw">Tweets by spiget_org</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
