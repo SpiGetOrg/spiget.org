@@ -11,7 +11,19 @@
 {block name="content-container"}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2"><!-- Placeholder --></div>
+            <div class="col-md-2">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- spiget about sidebar left -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2604356629473365"
+                     data-ad-slot="7262229659"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
             <div class="col-md-6">
                 <h1 class="page-header">About</h1>
                 <div style="font-size: 16px">
@@ -78,6 +90,20 @@
             </div>
             <div class="col-md-4">
                 <a class="twitter-timeline" href="https://twitter.com/search?q=%40spiget_org%20OR%20spiget.org%20OR%20%23SpiGet" data-widget-id="846360169080655872" data-height="1000">Tweets about SpiGet</a>
+
+                <br/>
+
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- spiget about sidebar right -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2604356629473365"
+                     data-ad-slot="7425881181"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
         </div>
     </div>

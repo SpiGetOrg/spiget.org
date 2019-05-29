@@ -1,3 +1,10 @@
+<style>
+    .patreon-widget{
+        width: 175px !important;
+        margin-top: 30px !important;
+        margin-left: 5px !important;
+    }
+</style>
 <nav id="main_nav" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header" style="height: 100px">
@@ -49,8 +56,9 @@
                 </li>
 
                 <li>
-                    <a class="nav-link custom-dbox-popup" id="donate-link" href="https://donorbox.org/spiget"
-                       title="Donate to keep this project running!">Donate ❤</a>
+                    {*<a class="nav-link custom-dbox-popup" id="donate-link" href="https://donorbox.org/spiget"*}
+                       {*title="Donate to keep this project running!">Donate ❤</a>*}
+                    <a href="https://www.patreon.com/bePatron?u=554075" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
                 </li>
             </ul>
         </div>

@@ -145,12 +145,12 @@ window.SpigetStatus = {
                     dailyData["total"].push([timestamp, data.total]);
                     dailyData["unique"].push([timestamp, data.unique]);
 
-                    $.each(data.userAgents, function (userAgent, userAgentCount) {
-                        if (userAgentData[userAgent] === undefined) {
-                            userAgentData[userAgent] = [];
-                        }
-                        userAgentData[userAgent].push([timestamp, userAgentCount]);
-                    });
+                    // $.each(data.userAgents, function (userAgent, userAgentCount) {
+                    //     if (userAgentData[userAgent] === undefined) {
+                    //         userAgentData[userAgent] = [];
+                    //     }
+                    //     userAgentData[userAgent].push([timestamp, userAgentCount]);
+                    // });
                 });
 
                 var dailySeries = [
@@ -174,13 +174,13 @@ window.SpigetStatus = {
                     }
                 ];
 
-                var userAgentSeries = [];
-                $.each(userAgentData, function (userAgent, data) {
-                    userAgentSeries.push({
-                        name: userAgent,
-                        data: data
-                    });
-                });
+                // var userAgentSeries = [];
+                // $.each(userAgentData, function (userAgent, data) {
+                //     userAgentSeries.push({
+                //         name: userAgent,
+                //         data: data
+                //     });
+                // });
 
                 $("#daily_requests_graph").highcharts({
                     chart: {
@@ -230,54 +230,54 @@ window.SpigetStatus = {
                     series: dailySeries
                 });
 
-                $("#user_agent_requests_graph").highcharts({
-                    chart: {
-                        type: "spline",
-                        zoomType: "x",
-                        height: 800
-                    },
-                    legend: {
-                        enabled: true
-                    },
-                    plotOptions: {
-                        series: {
-                            marker: {
-                                enabled: false,
-                                symbol: 'circle',
-                                states: {
-                                    hover: {
-                                        enabled: true
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    title: {
-                        text: "Requests per User-Agent"
-                    },
-                    xAxis: {
-                        type: "datetime"
-                    },
-                    yAxis: {
-                        title: {
-                            text: "Number of Requests"
-                        },
-                        min: 0
-                    },
-                    tooltip: {
-                        backgroundColor: {
-                            linearGradient: [0, 0, 0, 60],
-                            stops: [[0, '#FFFFFF'], [1, '#E0E0E0']]
-                        },
-                        crossshairs: [true, true],
-                        shared: true,
-                        followPointer: true,
-                        followTouchMove: true,
-                        formatter: seriesFormatter,
-                        useHTML: true
-                    },
-                    series: userAgentSeries
-                });
+                // $("#user_agent_requests_graph").highcharts({
+                //     chart: {
+                //         type: "spline",
+                //         zoomType: "x",
+                //         height: 800
+                //     },
+                //     legend: {
+                //         enabled: true
+                //     },
+                //     plotOptions: {
+                //         series: {
+                //             marker: {
+                //                 enabled: false,
+                //                 symbol: 'circle',
+                //                 states: {
+                //                     hover: {
+                //                         enabled: true
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     },
+                //     title: {
+                //         text: "Requests per User-Agent"
+                //     },
+                //     xAxis: {
+                //         type: "datetime"
+                //     },
+                //     yAxis: {
+                //         title: {
+                //             text: "Number of Requests"
+                //         },
+                //         min: 0
+                //     },
+                //     tooltip: {
+                //         backgroundColor: {
+                //             linearGradient: [0, 0, 0, 60],
+                //             stops: [[0, '#FFFFFF'], [1, '#E0E0E0']]
+                //         },
+                //         crossshairs: [true, true],
+                //         shared: true,
+                //         followPointer: true,
+                //         followTouchMove: true,
+                //         formatter: seriesFormatter,
+                //         useHTML: true
+                //     },
+                //     series: userAgentSeries
+                // });
             }
         });
     }
