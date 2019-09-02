@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/search/" title="Search for Resources and Authors">Search</a>
                 </li>
                 <li class="{if $pageid=='status'}active{/if}">
-                    <a class="nav-link" href="/status/" title="API Status and Statistics">Status <span id="navigation-status-icon" class="glyphicon glyphicon-info-sign"></span></a>
+                    <a class="nav-link" href="/status/" title="API Status and Statistics">Status <!--<span id="navigation-status-icon" class="glyphicon glyphicon-info-sign"></span>--></a>
                 </li>
                 <li class="{if $pageid=='libraries'}active{/if}">
                     <a class="nav-link" href="/libraries"
