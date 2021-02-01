@@ -1,5 +1,19 @@
 [
   {
+   "name": "Java",
+   "author": {
+       "name": "Blue Tree",
+	   "url": "https://github.com/BlueTree242"
+   },
+   "source": "https://github.com/BlueTree242/Spiget",
+   "download": "https://github.com/BlueTree242/Spiget/releases",
+   "apiVersion": "v2",
+   "CodeExample": {
+      "url": "https://pastebin.com/raw/uEEAYigr",
+	  "language": "java"
+   }
+  },
+  {
     "name": "Java",
     "author": {
       "name": "inventivetalent",
