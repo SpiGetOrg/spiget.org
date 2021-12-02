@@ -10,7 +10,7 @@ window.webhook = {
             }
         });
     },
-    ignoreConnection: false,
+    ignoreConnection: true,
     testConnection: function (url, event, callback) {
         if (webhook.ignoreConnection) {
             callback(true);
