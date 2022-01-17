@@ -68,5 +68,19 @@
       "url": "https://gist.githubusercontent.com/Th3Shadowbroker/2d5593dec2c3590b3e2b4eb2ca6b072c/raw/c5cd46982aa35b133a6d62ff4c2a27ef22563590/Spiget4PHP-Example.php",
       "language": "php"
     }
+  },
+  {
+    "name": "Java",
+    "author": {
+      "name": "derklaro",
+      "url": "https://github.com/derklaro"
+    },
+    "source": "https://github.com/derklaro/java-spiget-client",
+    "download": "https://mvnrepository.com/artifact/dev.derklaro.spiget/core",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://gist.githubusercontent.com/derklaro/55d195ab84e57639914483a329fcf132/raw/9b0c2e4e016dd42c79e25b9dc4115f5df0fad47d/SpigetJavaClientExample.java",
+      "language": "java"
+    }
   }
 ]
