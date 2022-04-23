@@ -48,7 +48,8 @@ window.SpigetStatus = {
 
             if (server.apiKey) {
                 $.ajax({
-                    url: "https://api.uptimerobot.com/getMonitors?format=json&noJsonCallback=1&apiKey=" + server.apiKey,
+                    method: 'POST',
+                    url: "https://api.uptimerobot.com/v2/getMonitors?format=json&api_key=" + server.apiKey,
                     dataType: "json",
                     success: function (response) {
                         console.log(response)
