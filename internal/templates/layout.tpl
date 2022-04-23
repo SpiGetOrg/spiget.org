@@ -129,13 +129,6 @@
 
     -->
 
-    <!-- Temporary V2 update note -->
-    <div class="alert alert-info" style="z-index: 200;position: fixed;left: 20px;bottom: 20px; display:none;" id="v2ReleaseAlert">
-        <a href="#" class="close" aria-label="close" data-dismiss="alert" id="v2ReleaseAlertDismiss">×</a>
-        <span style="color:rgb(0, 18, 62);">Spiget Version 2 has been released! Go and update your things :) | <a
-                    href="/documentation"><strong>Documentation</strong></a></span>
-    </div>
-
     {block name="footer"}
         {include "footer.tpl"}
     {/block}
@@ -156,14 +149,6 @@
 <script async src="/js/navigation-status.min.js"></script>
 
 {literal}
-    <script>
-        if (Cookies.get("v2ReleaseInfoSeen") === undefined) {
-            $("#v2ReleaseAlert").fadeIn();
-        }
-        $("#v2ReleaseAlertDismiss").click(function () {
-            Cookies.set("v2ReleaseInfoSeen", "true", {expires: 356});
-        });
-    </script>
     <script>
         window.DOP_config = {
             links: { // Replace with your links

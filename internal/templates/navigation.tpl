@@ -21,8 +21,7 @@
                     <img alt="Spiget Logo" draggable="false" class="logo" width="64" height="64"
                          src="/img/logo-plain-x64.png">
                     <h1 class="spiget-text"><strong><span class="spiget-spi">spi</span><span class="spiget-get">g<span
-                                        class="oe">e</span>t</span><!--BETA--><span class="spiget-beta">beta</span>
-                            <!--/BETA--></strong></h1>
+                                        class="oe">e</span>t</span></h1>
                 </div>
             </a>
         </div>
