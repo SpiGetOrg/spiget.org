@@ -141,9 +141,9 @@
     <script>
         window.SpigetStatusServers = [
             {
-                name: "aqua",
+                name: "apple",
                 color: "aqua",
-                url: "https://aqua.api.spiget.org",
+                url: "https://apple.api.spiget.org",
                 apiKey: "m778498607-51f8a0a2cba2102642c5264c"
             }
         ];
