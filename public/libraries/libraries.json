@@ -68,5 +68,19 @@
       "url": "https://gist.githubusercontent.com/Th3Shadowbroker/2d5593dec2c3590b3e2b4eb2ca6b072c/raw/c5cd46982aa35b133a6d62ff4c2a27ef22563590/Spiget4PHP-Example.php",
       "language": "php"
     }
+  },
+  {
+    "name": " Deno",
+    "author": {
+      "name": "jerskisnow",
+      "url": "https://github.com/jerskisnow"
+    },
+    "source": "https://github.com/jerskisnow/Spiget-Deno",
+    "download": "https://github.com/jerskisnow/Spiget-Deno/releases",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://github.com/jerskisnow/Spiget-Deno/blob/main/README.md#example",
+      "language": "typescript"
+    }
   }
 ]
