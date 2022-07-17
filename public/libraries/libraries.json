@@ -68,5 +68,19 @@
       "url": "https://gist.githubusercontent.com/Th3Shadowbroker/2d5593dec2c3590b3e2b4eb2ca6b072c/raw/c5cd46982aa35b133a6d62ff4c2a27ef22563590/Spiget4PHP-Example.php",
       "language": "php"
     }
+  },
+  {
+    "name": "Go Spiget",
+    "author": {
+      "name": "sunxyw",
+      "url": "https://github.com/sunxyw"
+    },
+    "source": "https://github.com/sunxyw/go-spiget",
+    "download": "https://github.com/sunxyw/go-spiget",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://raw.githubusercontent.com/sunxyw/go-spiget/main/example/search_resources.go",
+      "language": "go"
+    }
   }
 ]
