@@ -82,5 +82,19 @@
       "url": "https://raw.githubusercontent.com/sunxyw/go-spiget/main/example/search_resources.go",
       "language": "go"
     }
+  },
+  {
+    "name": "Node.js Spiget API",
+    "author": {
+      "name": "VeguiDev",
+      "url": "https://github.com/VeguiDev"
+    },
+    "source": "https://github.com/VeguiDev/spiget-api",
+    "download": "https://github.com/VeguiDev/spiget-api",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://raw.githubusercontent.com/VeguiDev/spiget-api/master/example/example_request.js",
+      "language": "javascript"
+    }
   }
 ]
