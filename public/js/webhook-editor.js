@@ -77,8 +77,8 @@ window.webhook = {
         $.ajax({
             url: "https://api.spiget.org/v2/webhook/delete/" + id + "/" + secret + "?spiget___ua=SpigetWebhooks&",
             // dataType : "jsonp",
-            method: "POST",
-            type: "POST",
+            method: "DELETE",
+            type: "DELETE",
             success: function (r) {
                 Alert.alert("success", "Webhook removed", true);
 
