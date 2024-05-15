@@ -66,41 +66,35 @@
 
     <meta name="flattr:id" content="okelw0">
 
-    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     {literal}
-        <script type="text/javascript">
-            window.cookieconsent_options = {
-                message: "This website uses cookies to ensure you get the best experience on our website",
-                dismiss: "Got it!",
-                learnMore: "More info",
-                link: null,
-                theme: "dark-floating"
-            };
-        </script>
-        <!-- End Cookie Consent plugin -->
-
-        <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
-        <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
-
-        <!-- Hotjar Tracking Code for https://spiget.org -->
-        <script>
-            (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:1028296,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        </script>
-
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-2604356629473365",
-                enable_page_level_ads: true
+        <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+        <script charset="UTF-8" src="https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" type="text/javascript"></script>
+        <script charset="UTF-8" type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"dark","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"inventivetalent","website_privacy_policy_url":"https://legal.inventivetalent.org/privacy"});
             });
         </script>
+
+        <!-- google adsense -->
+        <script async data-cookie-consent="targeting" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2604356629473365" crossorigin="anonymous"></script>
+        <!-- end of google adsense-->
+
+        <script data-cookie-consent="functionality" src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+        <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
+
+        <!-- Google tag (gtag.js) -->
+        <script async data-cookie-consent="tracking" src="https://www.googletagmanager.com/gtag/js?id=G-HDJD5EG1NR"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-HDJD5EG1NR');
+        </script>
+
+        <noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/privacy-policy-generator/">TermsFeed Free Privacy Policy Generator</a></noscript>
+        <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
     {/literal}
 
 </head>
@@ -135,9 +129,6 @@
     </body>
 {/block}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
-<!-- End Cookie Consent plugin -->
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
@@ -151,14 +142,16 @@
 {literal}
     <script>
         window.DOP_config = {
-            links: { // Replace with your links
+            links: {
                 paypal: "https://paypal.me/inventivetalent",
                 patreon: "https://patreon.com/inventivetalent"
             },
             enableAnalytics: true
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/InventivetalentDev/DonationPopup@master/DonationPopup.min.js"></script>
+    <!-- donation popup -->
+    <script async data-cookie-consent="functionality" src="https://cdn.jsdelivr.net/gh/InventivetalentDev/DonationPopup@master/DonationPopup.min.js" type="text/plain"></script>
+    <!-- end of donation popup-->
 {/literal}
 
 {block name="scripts"}
