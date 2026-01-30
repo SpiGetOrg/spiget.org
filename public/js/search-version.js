@@ -1,3 +1,10 @@
+function escapeHtml(text) {
+    if (text == null) return "";
+    var div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+
 angular.module("searchApp", []).controller("SearchController", ["$scope", function ($scope) {
     var ctrl = this;
 
@@ -43,16 +50,16 @@ angular.module("searchApp", []).controller("SearchController", ["$scope", functi
                     $.each(r.match, function (index, entry) {
                         var compatibleString = "";
                         $.each(entry.testedVersions, function (index1, tVersion) {
-                            compatibleString += tVersion + ", ";
+                            compatibleString += escapeHtml(tVersion) + ", ";
                         });
                         compatibleString = compatibleString.substring(0, compatibleString.length - 2);
                         $container.append(//
                             "<div class='panel panel-info resource-panel'>" + //
                             "	<div class='panel-heading'>" + //
-                            "		<a href='https://api.spiget.org/v2/resources/" + entry.id + "/go' target='_blank'>" + entry.name + "</a><span class='pull-right text-muted'>#" + entry.id + "</span>" + //
+                            "		<a href='https://api.spiget.org/v2/resources/" + entry.id + "/go' target='_blank'>" + escapeHtml(entry.name) + "</a><span class='pull-right text-muted'>#" + entry.id + "</span>" + //
                             "	</div>" + //
                             "	<div class='panel-body'>" + //
-                            "		<strong>Tested with: </strong><span>" + compatibleString + "</span>" + //
+                            "		<strong>Tested with: </strong><span>" + escapeHtml(compatibleString) + "</span>" + //
                             "	</div>" + //
                             "</div>" + //
                             "<br/>"//

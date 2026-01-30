@@ -59,9 +59,9 @@
 {block name="scripts"}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script>
-        var type = "{$type}";
-        var query = "{$query}";
-        var limit = parseInt("{$limit}");
+        var type = "{$type|escape:'javascript'}";
+        var query = "{$query|escape:'javascript'}";
+        var limit = {$limit|intval};
     </script>
     <script src="/js/search.min.js?1"></script>
 {/block}

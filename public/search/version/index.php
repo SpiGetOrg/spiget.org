@@ -4,7 +4,8 @@ include_once("../../../internal/Smarty.php");
 
 $values = array(
     "query" => "",
-    "method" => "any"
+    "method" => "any",
+    "limit" => 10
 );
 
 $query = $_GET ["q"];

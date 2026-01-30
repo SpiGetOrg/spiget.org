@@ -1,3 +1,10 @@
+function escapeHtml(text) {
+    if (text == null) return "";
+    var div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+
 angular.module("searchApp", []).controller("SearchController", ["$scope", function ($scope) {
     var ctrl = this;
 
@@ -44,11 +51,11 @@ angular.module("searchApp", []).controller("SearchController", ["$scope", functi
                         $container.append(//
                             "<div class='panel panel-info resource-panel'>" + //
                             "	<div class='panel-heading'>" + //
-                            "		<a href='https://api.spiget.org/v2/" + ctrl.type + "/" + entry.id + "/go' target='_blank'>" + (ctrl.type == "resources" ? entry.name : entry.name ) + "</a><span class='pull-right text-muted'>#" + entry.id + "</span>" + //
+                            "		<a href='https://api.spiget.org/v2/" + ctrl.type + "/" + entry.id + "/go' target='_blank'>" + escapeHtml(entry.name) + "</a><span class='pull-right text-muted'>#" + entry.id + "</span>" + //
                             "	</div>" + //
                             (ctrl.type == "resources" ? //
                             "	<div class='panel-body'>" + //
-                            "		<span>" + entry.tag + "</span>" + //
+                            "		<span>" + escapeHtml(entry.tag) + "</span>" + //
                             "	</div>" : "") + //
                             "</div>" + //
                             "<br/>"//
