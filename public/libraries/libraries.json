@@ -107,7 +107,7 @@
     "download": "https://www.npmjs.com/package/spiget-js",
     "apiVersion": "v2",
     "codeExample": {
-      "url": "https://raw.githubusercontent.com/creeperkatze/spiget-js/refs/heads/main/examples/example.ts",
+      "url": "https://raw.githubusercontent.com/creeperkatze/spiget-js/main/examples/example.ts",
       "language": "typescript"
     }
   }
