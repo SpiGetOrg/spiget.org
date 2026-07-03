@@ -96,5 +96,19 @@
       "url": "https://raw.githubusercontent.com/VeguiDev/spiget-api/master/example/example_request.js",
       "language": "javascript"
     }
+  },
+  {
+    "name": "spiget-js",
+    "author": {
+      "name": "Creeperkatze",
+      "url": "https://github.com/creeperkatze"
+    },
+    "source": "https://github.com/creeperkatze/spiget-js",
+    "download": "https://www.npmjs.com/package/spiget-js",
+    "apiVersion": "v2",
+    "codeExample": {
+      "url": "https://raw.githubusercontent.com/creeperkatze/spiget-js/main/examples/example.ts",
+      "language": "typescript"
+    }
   }
 ]
