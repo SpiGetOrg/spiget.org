@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SearchForm from '../../components/SearchForm.astro';
+---
+
+<Layout title="Search" description="Search Spigot resources and authors with the Spiget API">
+  <div class="container">
+    <h1 class="page-header">Search</h1>
+    <SearchForm
+      modeLabel="Search for"
+      modes={[
+        { value: 'authors', label: 'Author' },
+        { value: 'resources', label: 'Resource' },
+      ]}
+      queryPlaceholder="Search for Resource"
+      switchLink={{ href: '/search/version/', label: 'Search Versions' }}
+    />
+  </div>
+</Layout>
+
+<script>
+  import { apiGet, el } from '../../scripts/api';
+  import { setupSearchPage } from '../../scripts/search';
+
+  interface Entry {
+    id: number;
+    name: string;
+    tag?: string;
+  }
+
+  setupSearchPage<Entry[]>({
+    basePath: '/search/',
+    modes: ['authors', 'resources'],
+    defaultMode: 'resources',
+    placeholder: (mode) => `Search for ${mode === 'authors' ? 'Author' : 'Resource'}`,
+    fetchResults: (mode, query, limit) =>
+      apiGet<Entry[]>(`/search/${mode}/${encodeURIComponent(query)}`, { size: limit }, { ua: 'SpigetSearch' }),
+    render: (container, entries, mode) => {
+      for (const entry of entries) {
+        container.append(
+          el(
+            'div',
+            { class: 'result-panel' },
+            el(
+              'div',
+              { class: 'result-heading' },
+              el('a', { href: `https://api.spiget.org/v2/${mode}/${entry.id}/go`, target: '_blank', rel: 'noopener' }, entry.name),
+              el('span', { class: 'result-id' }, `#${entry.id}`),
+            ),
+            mode === 'resources' ? el('div', { class: 'result-body' }, entry.tag ?? '') : null,
+          ),
+        );
+      }
+      return entries.length;
+    },
+  });
+</script>

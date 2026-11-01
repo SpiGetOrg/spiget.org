@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdSlot from '../components/AdSlot.astro';
+import TryIt from '../components/TryIt.astro';
+---
+
+<Layout>
+  <section class="hero">
+    <div class="container">
+      <h1 class="noselect">
+        Spig<span class="eo" title="Spigot or Spiget?">o</span>t <strong>Resource</strong> and <strong>Author</strong> API
+      </h1>
+      <div class="hero-buttons">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tryit-modal">Try It</button>
+        <a href="/documentation/" class="btn btn-primary">Documentation</a>
+        <a href="/about/" class="btn btn-primary">Learn More</a>
+      </div>
+
+      <div class="faucet d-none d-lg-block" aria-hidden="true">
+        <span class="pipe"></span>
+        <picture>
+          <source srcset="/img/logo_text_white_arrow.svg" media="(prefers-color-scheme: dark)" />
+          <img src="/img/logo_text.svg" width="256" height="267" alt="" draggable="false" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-band" aria-labelledby="stats-title">
+    <div class="container">
+      <h2 id="stats-title"><i class="bi bi-bar-chart-fill me-2" aria-hidden="true"></i>Stats</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="stat-value" id="stat-resources" data-stat>0</p>
+          <p class="stat-description"><strong>Resources</strong> released</p>
+        </div>
+        <div class="col-md-4">
+          <p class="stat-value" id="stat-authors" data-stat>0</p>
+          <p class="stat-description">Resource <strong>Authors</strong></p>
+        </div>
+        <div class="col-md-4">
+          <p class="stat-value" id="stat-requests" data-stat>0</p>
+          <p class="stat-description">Daily <strong>API requests</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 pt-4">
+        <AdSlot slot="8997983157" />
+      </div>
+
+      <div class="col-lg-8">
+        <section>
+          <h2 class="section-title">Recently Updated <strong>Resources</strong> and <strong>Authors</strong></h2>
+          <div class="row gy-4 px-2">
+            <div class="col-md-6">
+              <div class="data-list-wrapper">
+                <span class="corner-icon" title="Resources"><i class="bi bi-paperclip" aria-hidden="true"></i></span>
+                <ul id="new-resources" class="data-list" aria-label="Recently updated resources"></ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="data-list-wrapper">
+                <span class="corner-icon" title="Authors"><i class="bi bi-person-fill" aria-hidden="true"></i></span>
+                <ul id="new-authors" class="data-list" aria-label="Recently updated authors"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">Supporters</h2>
+          <ul class="supporter-list">
+            <li class="well supporter">
+              <a href="https://aternos.org" target="_blank" rel="noopener">
+                <img src="/img/aternos.png" width="128" height="128" class="supporter-image" alt="Aternos logo" />
+              </a>
+              <div>
+                <h3 class="h2"><a href="https://aternos.org" target="_blank" rel="noopener">Aternos.org</a></h3>
+                <a href="https://aternos.org" target="_blank" rel="noopener"><strong>Aternos</strong></a> kindly provided the API
+                Server for Spiget!
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="col-lg-2 pt-4">
+        <AdSlot slot="7736872376" />
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="tryit-modal" tabindex="-1" aria-labelledby="tryit-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="tryit-modal-title">Try it!</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <TryIt />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { apiGet, completeDays, el, formatNumber, prefersReducedMotion } from '../scripts/api';
+
+  interface Status {
+    stats: { resources: number; authors: number };
+  }
+  interface Metric {
+    timestamp: number;
+    total: number;
+  }
+  interface Resource {
+    id: number;
+    name: string;
+    releaseDate: number;
+    updateDate: number;
+    premium?: boolean;
+  }
+  interface Author {
+    id: number;
+    name: string;
+  }
+
+  const UA = 'SpigetStats';
+
+  // Count up from the current number to `value`
+  function animateValue(id: string, value: number, duration: number) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    if (prefersReducedMotion()) {
+      element.textContent = formatNumber(value);
+      return;
+    }
+    const start = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 0.5 - Math.cos(progress * Math.PI) / 2;
+      element.textContent = formatNumber(Math.ceil(value * eased));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  function markUnavailable(id: string) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    element.textContent = '–';
+    element.title = 'Not available right now';
+  }
+
+  async function loadStats() {
+    try {
+      const status = await apiGet<Status>('/status', { pretty: 'false' }, { ua: UA });
+      animateValue('stat-resources', status.stats.resources, 1500);
+      setTimeout(() => animateValue('stat-authors', status.stats.authors, 1500), 250);
+    } catch {
+      markUnavailable('stat-resources');
+      markUnavailable('stat-authors');
+    }
+
+    try {
+      const metrics = await apiGet<Record<string, Metric>>(
+        '/metrics/requests/30',
+        { pretty: 'false', simple: 'true' },
+        { ua: UA, timeoutMs: 8_000 },
+      );
+      const days = completeDays(Object.values(metrics)).filter((day) => day.total > 0);
+      const average = days.length ? days.reduce((sum, day) => sum + day.total, 0) / days.length : 0;
+      animateValue('stat-requests', Math.round(average), 2500);
+    } catch {
+      markUnavailable('stat-requests');
+    }
+  }
+
+  // Lists use the last fetcher run; if that is empty, fall back to the latest changes overall
+  async function loadList<T>(primary: string, fallback: string, fallbackParams: Record<string, string | number>) {
+    try {
+      const items = await apiGet<T[]>(primary, { size: 16, pretty: 'false' }, { ua: UA });
+      const valid = Array.isArray(items) ? items.filter((item) => item && !Array.isArray(item)) : [];
+      if (valid.length > 0) return valid;
+    } catch {
+      // The API answers 404 when the last run had no updates
+    }
+    return apiGet<T[]>(fallback, { size: 16, ...fallbackParams }, { ua: UA });
+  }
+
+  function emptyItem(text: string) {
+    return el('li', {}, el('span', { class: 'text-body-secondary' }, text));
+  }
+
+  async function loadRecentResources() {
+    const list = document.getElementById('new-resources');
+    if (!list) return;
+    try {
+      const resources = await loadList<Resource>('/resources/recentUpdates', '/resources', {
+        sort: '-updateDate',
+        fields: 'id,name,releaseDate,updateDate,premium',
+      });
+      if (resources.length === 0) {
+        list.append(emptyItem('No new resources since the last update'));
+        return;
+      }
+      resources.forEach((resource, index) => {
+        let extra: HTMLElement | null = null;
+        if (resource.updateDate === resource.releaseDate) {
+          extra = el('i', { class: 'bi bi-star-fill extra text-body-secondary', title: 'New Resource' });
+        } else if (resource.premium) {
+          extra = el('i', { class: 'bi bi-currency-dollar extra text-body-secondary', title: 'Premium Resource' });
+        }
+        const item = el(
+          'li',
+          { style: `animation-delay: ${(index + 1) * 100}ms` },
+          el('a', { href: `https://r.spiget.org/${resource.id}`, target: '_blank', rel: 'noopener' }, resource.name),
+          extra,
+        );
+        list.append(item);
+      });
+    } catch {
+      list.append(emptyItem('Could not load resources'));
+    }
+  }
+
+  async function loadRecentAuthors() {
+    const list = document.getElementById('new-authors');
+    if (!list) return;
+    try {
+      const authors = await loadList<Author>('/authors/recentUpdates', '/authors', { sort: '-id', fields: 'id,name' });
+      if (authors.length === 0) {
+        list.append(emptyItem('No new authors since the last update'));
+        return;
+      }
+      authors.forEach((author, index) => {
+        list.append(
+          el(
+            'li',
+            { style: `animation-delay: ${(index + 1) * 100}ms` },
+            el('a', { href: `https://a.spiget.org/${author.id}`, target: '_blank', rel: 'noopener' }, author.name),
+          ),
+        );
+      });
+    } catch {
+      list.append(emptyItem('Could not load authors'));
+    }
+  }
+
+  // "Spigot" <-> "Spiget"
+  document.querySelectorAll<HTMLElement>('.eo').forEach((element) => {
+    element.addEventListener('click', () => {
+      const next = element.textContent === 'o' ? 'e' : 'o';
+      document.querySelectorAll('.eo').forEach((other) => (other.textContent = next));
+    });
+  });
+
+  loadStats();
+  loadRecentResources();
+  loadRecentAuthors();
+</script>

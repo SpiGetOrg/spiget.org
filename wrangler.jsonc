@@ -1,0 +1,20 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "spiget-org",
+	// Newest date the local runtime used by `wrangler dev` (wrangler 4.156) supports; newer dates break local dev
+	"compatibility_date": "2026-10-30",
+	// Cloudflare creates and manages the DNS record for spiget.org
+	"routes": [{ "pattern": "spiget.org", "custom_domain": true }],
+	// Keep spiget-org.<subdomain>.workers.dev as a second address for checks
+	"workers_dev": true,
+	// Static site only: no Worker script, Cloudflare serves the Astro build output directly.
+	// public/_redirects and public/_headers are copied into dist/ and applied by Cloudflare.
+	"assets": {
+		"directory": "./dist",
+		// Unknown paths get dist/404.html with a 404 status.
+		// The 404 page also forwards old path-style search links to ?q= URLs.
+		"not_found_handling": "404-page",
+		// /about -> /about/ (Astro builds each page as <page>/index.html)
+		"html_handling": "auto-trailing-slash"
+	}
+}

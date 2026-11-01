@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SearchForm from '../../components/SearchForm.astro';
+---
+
+<Layout title="Version Search" description="Find Spigot resources that were tested with specific Minecraft versions">
+  <div class="container">
+    <h1 class="page-header">Version Search</h1>
+    <SearchForm
+      modeLabel="Match"
+      modes={[
+        { value: 'any', label: 'Compatible with any version' },
+        { value: 'all', label: 'Compatible with all versions' },
+      ]}
+      queryPlaceholder="Versions separated by commas (for example: 1.7,1.9)"
+      switchLink={{ href: '/search/', label: 'Search Resources & Authors' }}
+    />
+  </div>
+</Layout>
+
+<script>
+  import { apiGet, el } from '../../scripts/api';
+  import { setupSearchPage } from '../../scripts/search';
+
+  interface VersionResponse {
+    match: { id: number; name: string; testedVersions?: string[] }[];
+  }
+
+  setupSearchPage<VersionResponse>({
+    basePath: '/search/version/',
+    modes: ['any', 'all'],
+    defaultMode: 'any',
+    fetchResults: (method, query, limit) =>
+      apiGet<VersionResponse>(
+        `/resources/for/${encodeURIComponent(query)}`,
+        { method, size: limit },
+        { ua: 'SpigetSearchVersion' },
+      ),
+    render: (container, response) => {
+      const matches = response.match ?? [];
+      for (const entry of matches) {
+        container.append(
+          el(
+            'div',
+            { class: 'result-panel' },
+            el(
+              'div',
+              { class: 'result-heading' },
+              el('a', { href: `https://api.spiget.org/v2/resources/${entry.id}/go`, target: '_blank', rel: 'noopener' }, entry.name),
+              el('span', { class: 'result-id' }, `#${entry.id}`),
+            ),
+            el('div', { class: 'result-body' }, el('strong', {}, 'Tested with: '), (entry.testedVersions ?? []).join(', ')),
+          ),
+        );
+      }
+      return matches.length;
+    },
+  });
+</script>

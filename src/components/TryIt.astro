@@ -1,0 +1,83 @@
+---
+// Request any API path and show the JSON response. Used on the home page modal and /tryit.
+---
+
+<form class="tryit-form" data-tryit>
+  <div class="row g-2">
+    <div class="col">
+      <label class="visually-hidden" for="tryit-path">API path</label>
+      <input
+        type="text"
+        id="tryit-path"
+        name="path"
+        class="form-control font-monospace"
+        placeholder="/resources"
+        value="/resources"
+        list="tryit-paths"
+        autocomplete="off"
+      />
+      <datalist id="tryit-paths"></datalist>
+      <div class="form-text">
+        Start typing to get a list of methods | Find a detailed method list
+        <strong><a href="/documentation/" target="_blank">here</a></strong>
+      </div>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Go!</button>
+    </div>
+  </div>
+</form>
+<hr />
+<pre class="raw-json" id="tryit-result" aria-live="polite"></pre>
+
+<script>
+  import { API_BASE } from '../scripts/api';
+
+  const SWAGGER_URL = 'https://raw.githubusercontent.com/SpiGetOrg/Documentation/master/swagger.json';
+
+  const form = document.querySelector<HTMLFormElement>('[data-tryit]');
+  const input = document.getElementById('tryit-path') as HTMLInputElement | null;
+  const result = document.getElementById('tryit-result');
+  const datalist = document.getElementById('tryit-paths');
+
+  if (form && input && result && datalist) {
+    // Fill the suggestions with every path from the API docs, the first time the field is used
+    const loadSuggestions = () =>
+      fetch(SWAGGER_URL)
+        .then((response) => response.json())
+        .then((swagger: { paths: Record<string, unknown> }) => {
+          for (const path of Object.keys(swagger.paths)) {
+            const option = document.createElement('option');
+            option.value = path;
+            datalist.append(option);
+          }
+        })
+        .catch(() => {
+          // Suggestions are optional
+        });
+    input.addEventListener('focus', loadSuggestions, { once: true });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      let path = input.value.trim();
+      if (!path) return;
+      if (!path.startsWith('/')) path = '/' + path;
+
+      result.textContent = 'Loading…';
+      try {
+        const response = await fetch(API_BASE + path, { signal: AbortSignal.timeout(15_000) });
+        const text = await response.text();
+        let body: unknown = text;
+        try {
+          body = JSON.parse(text);
+        } catch {
+          // Not JSON, show as text
+        }
+        const output = typeof body === 'string' ? body : JSON.stringify(body, null, 4);
+        result.textContent = response.ok ? output : `HTTP ${response.status}\n\n${output}`;
+      } catch (error) {
+        result.textContent = `Request failed: ${error instanceof Error ? error.message : String(error)}`;
+      }
+    });
+  }
+</script>

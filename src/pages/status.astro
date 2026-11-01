@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdSlot from '../components/AdSlot.astro';
+---
+
+<Layout title="Status" description="Status and request statistics of the Spiget API">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 pt-4">
+        <AdSlot slot="3613794533" />
+      </div>
+
+      <div class="col-lg-7">
+        <h1 class="page-header">Status</h1>
+
+        <div class="card">
+          <div class="card-header d-flex justify-content-between flex-wrap gap-2">
+            <strong>API</strong>
+            <a href="https://status.spiget.org/" target="_blank" rel="noopener">
+              <strong>Server status</strong> on status.spiget.org
+              <i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="card-body">
+            <div class="fetcher-status" id="fetcher-status">Checking Fetcher Status…</div>
+            <div class="fetcher-details" id="fetcher-details"></div>
+            <hr />
+            <h2 class="h5 text-center">Daily Requests</h2>
+            <div class="chart-box" id="daily-requests-box">
+              <canvas id="daily-requests-chart" aria-label="Daily API requests over the last 30 days" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 pt-4">
+        <AdSlot slot="6494452201" />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import {
+    Chart,
+    CategoryScale,
+    Filler,
+    Legend,
+    LinearScale,
+    LineController,
+    LineElement,
+    PointElement,
+    Tooltip,
+  } from 'chart.js';
+  import { apiGet, completeDays, el, formatNumber, fromNow, metricMillis } from '../scripts/api';
+
+  Chart.register(CategoryScale, Filler, Legend, LinearScale, LineController, LineElement, PointElement, Tooltip);
+
+  async function checkFetcher() {
+    const status = document.getElementById('fetcher-status')!;
+    const details = document.getElementById('fetcher-details')!;
+    try {
+      const response = await apiGet<{ status: { fetch: { active: boolean; start: number; end: number } } }>('/status');
+      const { active, start, end } = response.status.fetch;
+      if (active) {
+        status.replaceChildren('The API is ', el('span', { class: 'updating' }, 'currently updating'));
+        details.replaceChildren('The update started ', el('span', { class: 'time' }, fromNow(start)));
+      } else {
+        status.replaceChildren('The API is ', el('span', { class: 'updated' }, 'up to date'));
+        details.replaceChildren('It was last updated ', el('span', { class: 'time' }, fromNow(end > 0 ? end : start)));
+      }
+    } catch {
+      status.textContent = 'Fetcher status is not available right now';
+    }
+  }
+
+  /** Least-squares line through the points, for the trend series */
+  function trendLine(values: number[]): number[] {
+    const n = values.length;
+    if (n < 2) return values.slice();
+    const meanX = (n - 1) / 2;
+    const meanY = values.reduce((a, b) => a + b, 0) / n;
+    let numerator = 0;
+    let denominator = 0;
+    values.forEach((y, x) => {
+      numerator += (x - meanX) * (y - meanY);
+      denominator += (x - meanX) ** 2;
+    });
+    const slope = numerator / denominator;
+    return values.map((_, x) => Math.round(meanY + slope * (x - meanX)));
+  }
+
+  async function drawChart() {
+    const box = document.getElementById('daily-requests-box')!;
+    const canvas = document.getElementById('daily-requests-chart') as HTMLCanvasElement;
+    try {
+      const metrics = await apiGet<{ timestamp: number; total: number; unique: number }[]>(
+        '/metrics/requests/30',
+        {},
+        { timeoutMs: 10_000 },
+      );
+      const days = completeDays(Object.values(metrics)).sort((a, b) => a.timestamp - b.timestamp);
+      const dateFormat = new Intl.DateTimeFormat('en', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
+      const dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+      const totals = days.map((day) => day.total);
+
+      new Chart(canvas, {
+        type: 'line',
+        data: {
+          // Days are UTC dates, so format them in UTC too (otherwise they shift by a day west of UTC)
+          labels: days.map((day) => dateFormat.format(new Date(metricMillis(day.timestamp)))),
+          datasets: [
+            { label: 'total', data: totals, borderColor: dark ? '#e9ecef' : 'black', backgroundColor: dark ? '#e9ecef' : 'black' },
+            { label: 'unique', data: days.map((day) => day.unique), borderColor: '#3b82f6', backgroundColor: '#3b82f6', hidden: true },
+            { label: 'trend', data: trendLine(totals), borderColor: 'gray', backgroundColor: 'gray', borderDash: [6, 4] },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          elements: { line: { tension: 0.35, borderWidth: 2 }, point: { radius: 0, hoverRadius: 4 } },
+          scales: {
+            y: { title: { display: true, text: 'Number of Requests' }, ticks: { callback: (value) => formatNumber(Number(value)) } },
+          },
+          plugins: {
+            tooltip: { callbacks: { label: (item) => `${item.dataset.label}: ${formatNumber(Number(item.raw))}` } },
+          },
+        },
+      });
+    } catch {
+      box.replaceChildren(el('p', { class: 'text-body-secondary text-center my-5' }, 'Request statistics are not available right now.'));
+      box.style.height = 'auto';
+    }
+  }
+
+  checkFetcher();
+  drawChart();
+</script>

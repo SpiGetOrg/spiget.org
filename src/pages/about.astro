@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdSlot from '../components/AdSlot.astro';
+---
+
+<Layout title="About">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 pt-4">
+        <AdSlot slot="7262229659" />
+      </div>
+
+      <div class="col-lg-6 fs-6">
+        <h1 class="page-header">About</h1>
+        <p>
+          Spiget is a JSON Information API for Spigot <strong>Resources/Plugins</strong> and <strong>Authors</strong>.
+          <br />
+          The data is loaded and updated from the SpigotMC site every 2 hours.
+          <br />
+          It loads all resources of the first 5 resource-pages by default. It also updates the authors and versions of those
+          resources.
+        </p>
+        <p>
+          Make sure to follow <a target="_blank" rel="noopener" href="https://twitter.com/Spiget_org"><strong>@Spiget</strong></a>
+          and <a target="_blank" rel="noopener" href="https://twitter.com/inventivtalent"><strong>@inventivetalent</strong></a>
+          on twitter to get the latest updates.
+          <br />
+          You should also check out
+          <a target="_blank" rel="noopener" href="https://www.spigotmc.org/threads/api-spiget-beta.104454/">the SpigotMC thread</a>, if
+          you're interested in the change log.
+        </p>
+        <p>
+          <strong>This project is currently in BETA, so its functionality and availability is not guaranteed yet.</strong>
+          <br />
+          <strong>
+            Please feel free to report issues or suggest features using the
+            <a target="_blank" href="/issues">Issue Tracker</a>.
+          </strong>
+        </p>
+
+        <h2>Contributing</h2>
+        <p>
+          <strong>This project is open-source!</strong>
+          <br />
+          All repositories for the <a href="https://github.com/SpiGetOrg/RestAPI" target="_blank" rel="noopener">API</a>,
+          <a href="https://github.com/SpiGetOrg/spiget.org" target="_blank" rel="noopener">Website</a>,
+          <a href="https://github.com/SpiGetOrg/SpigetFetcher" target="_blank" rel="noopener">Fetcher</a> and
+          <a href="https://github.com/SpiGetOrg/Documentation" target="_blank" rel="noopener">Documentation</a> are located
+          <a href="https://github.com/spigetorg" target="_blank" rel="noopener">on GitHub</a>.
+        </p>
+
+        <h2>Feature Requests <span class="text-body-secondary">|</span> Bug Reports</h2>
+        <p>
+          If you would like to suggest a feature or if you found a Bug,
+          <br />
+          please use the <a target="_blank" href="/issues">Issue Tracker</a> to submit them.
+        </p>
+      </div>
+
+      <div class="col-lg-4 pt-4">
+        <AdSlot slot="7425881181" />
+      </div>
+    </div>
+  </div>
+</Layout>
+
