@@ -1,0 +1,69 @@
+---
+interface Props {
+  autoHide?: boolean;
+}
+const { autoHide = true } = Astro.props;
+const path = Astro.url.pathname;
+const isActive = (prefix: string) => path === prefix || path.startsWith(prefix + '/');
+
+const links = [
+  { href: '/documentation/', match: '/documentation', label: 'Documentation', title: 'API Documentation' },
+  { href: '/search/', match: '/search', label: 'Search', title: 'Search for Resources and Authors' },
+  { href: '/status/', match: '/status', label: 'Status', title: 'API Status and Statistics' },
+  { href: '/libraries/', match: '/libraries', label: 'Libraries', title: 'Libraries for making requests to the API' },
+  { href: '/about/', match: '/about', label: 'About', title: 'About this project' },
+];
+---
+
+<nav id="main-nav" class="navbar navbar-expand-lg fixed-top site-nav" data-autohide={String(autoHide)}>
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <picture>
+        <source srcset="/img/logo_plain_white_arrow.svg" media="(prefers-color-scheme: dark)" />
+        <img alt="Spiget logo" draggable="false" class="logo" width="64" height="64" src="/img/logo_plain.svg" />
+      </picture>
+      <span class="spiget-text"><span class="spiget-spi">spi</span><span class="spiget-get">get</span></span>
+    </a>
+
+    <button
+      type="button"
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#main-nav-links"
+      aria-controls="main-nav-links"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-nav-links">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        {
+          links.map((link) => (
+            <li class="nav-item">
+              <a
+                class:list={['nav-link', { active: isActive(link.match) }]}
+                href={link.href}
+                title={link.title}
+                aria-current={isActive(link.match) ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="https://x.spiget.org" target="_blank" rel="noopener">URL Shortener</a></li>
+            <li><a class="dropdown-item" href="https://badges.spiget.org" target="_blank" rel="noopener">Badges</a></li>
+            <li><a class="dropdown-item" href="/webhook/">Webhook Editor</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

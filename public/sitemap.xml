@@ -10,6 +10,9 @@
         <loc>https://spiget.org/search/</loc>
     </url>
     <url>
+        <loc>https://spiget.org/search/version/</loc>
+    </url>
+    <url>
         <loc>https://spiget.org/status/</loc>
     </url>
     <url>

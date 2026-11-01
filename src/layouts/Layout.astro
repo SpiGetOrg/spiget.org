@@ -1,0 +1,142 @@
+---
+import '@fontsource-variable/open-sans';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '../styles/main.scss';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  /** Page name, e.g. "Status". Omit on the home page. */
+  title?: string;
+  description?: string;
+  /** Hide the fixed nav while scrolling down (off for full-height pages like the docs) */
+  autoHideNav?: boolean;
+}
+
+const SITE_TITLE = 'Spiget | API for Spigot Resources, Plugins and Authors';
+const DEFAULT_DESCRIPTION =
+  'Spiget is an API to quickly and easily get information about Spigot plugins, resources and authors';
+
+const { title, description = DEFAULT_DESCRIPTION, autoHideNav = true } = Astro.props;
+const fullTitle = title ? `${title} | Spiget` : SITE_TITLE;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+
+    <!-- Follow the system light/dark setting before first paint -->
+    <script is:inline>
+      (function () {
+        var query = window.matchMedia('(prefers-color-scheme: dark)');
+        var apply = function () {
+          document.documentElement.setAttribute('data-bs-theme', query.matches ? 'dark' : 'light');
+        };
+        apply();
+        query.addEventListener('change', apply);
+      })();
+    </script>
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="canonical" href={canonical} />
+
+    <meta name="keywords" content="spiget,spigot,minecraft,server,bukkit,api,plugin,author,resource,spigotmc" />
+    <meta name="description" content={description} />
+    <meta name="author" content="inventivetalent" />
+    <meta name="theme-color" content="#ffa500" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:site_name" content={title ?? SITE_TITLE} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://spiget.org/img/logo-text-centered-616x630.png" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:site" content="@Spiget_org" />
+    <meta name="twitter:creator" content="@Inventivtalent" />
+    <meta name="twitter:card" content="summary" />
+
+    <meta name="flattr:id" content="okelw0" />
+
+    <slot name="head" />
+
+    <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+    <script is:inline charset="UTF-8" src="https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js" type="text/javascript"></script>
+    <script is:inline charset="UTF-8" type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+        cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"dark","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"inventivetalent","website_privacy_policy_url":"https://legal.inventivetalent.org/privacy"});
+      });
+    </script>
+
+    <!-- Google AdSense -->
+    <script is:inline async data-cookie-consent="targeting" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2604356629473365" crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async data-cookie-consent="tracking" src="https://www.googletagmanager.com/gtag/js?id=G-HDJD5EG1NR"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HDJD5EG1NR');
+    </script>
+
+    <noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/privacy-policy-generator/">TermsFeed Free Privacy Policy Generator</a></noscript>
+    <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+  </head>
+  <body>
+    <Nav autoHide={autoHideNav} />
+
+    <main>
+      <slot />
+    </main>
+
+    <!--
+     _____       _  _____      _
+    / ____|     (_)/ ____|    | |
+    | (___  _ __  _| |  __  ___| |_   ___  _ __ __ _
+    \___ \| '_ \| | | |_ |/ _ \ __| / _ \| '__/ _` |
+    ____) | |_) | | |__| |  __/ |_ | (_) | | | (_| |
+    |_____/| .__/|_|\_____|\___|\__(_)___/|_|  \__, |
+           | |                                  __/ |
+           |_|                                 |___/
+    -->
+
+    <Footer />
+
+    <script is:inline async src="https://platform.twitter.com/widgets.js"></script>
+
+    <script>
+      import 'bootstrap';
+      import { hideAlert } from '../scripts/alert';
+
+      // Hide the fixed nav when scrolling down past the hero, show it again when scrolling up
+      const nav = document.getElementById('main-nav');
+      if (nav && nav.dataset.autohide !== 'false') {
+        let lastY = window.scrollY;
+        window.addEventListener(
+          'scroll',
+          () => {
+            const y = window.scrollY;
+            const menuOpen = nav.querySelector('.navbar-collapse.show');
+            nav.classList.toggle('nav-hidden', y > 300 && y > lastY && !menuOpen);
+            lastY = y;
+          },
+          { passive: true },
+        );
+      }
+
+      document.getElementById('footer-alert-close')?.addEventListener('click', hideAlert);
+    </script>
+
+    <slot name="scripts" />
+  </body>
+</html>

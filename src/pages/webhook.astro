@@ -1,0 +1,188 @@
+---
+import { readFileSync } from 'node:fs';
+import { Code } from 'astro:components';
+import Layout from '../layouts/Layout.astro';
+
+// Kept in public/ so the old /code/webhook-example-resource.txt URL still works
+const example = readFileSync('public/code/webhook-example-resource.txt', 'utf-8').trim();
+---
+
+<Layout title="Webhooks" description="Register webhooks to get notified about Spigot resource updates">
+  <div class="container">
+    <h1 class="page-header">Webhooks</h1>
+    <p>
+      You can register <strong>Webhooks</strong> which are triggered for certain update-events.
+      <br />
+      The URL specified will receive a JSON <code>POST</code> request as soon as a resource update has been detected (every ~2 hours).
+    </p>
+    <p class="mb-1">Currently, these events are available:</p>
+    <ul>
+      <li><code>resource-update</code></li>
+      <li><code>new-resource</code></li>
+      <li><code>new-author</code></li>
+    </ul>
+    <p>Feel free to request more events via the <a href="/issues" target="_blank">Issue Tracker</a>.</p>
+
+    <p class="mb-1"><strong>Example POST:</strong></p>
+    <div class="code-block">
+      <Code code={example} lang="json" themes={{ light: 'github-light', dark: 'github-dark' }} defaultColor="light" />
+    </div>
+
+    <p>Use the <strong>/webhook/register</strong> method, or the form below to create a new Webhook registration.</p>
+    <hr />
+
+    <h2 id="register">Register Webhook</h2>
+    <form id="register-form" class="mb-4" novalidate>
+      <div class="mb-3">
+        <label class="form-label fw-semibold" for="target-url">Target URL</label>
+        <input type="url" class="form-control" id="target-url" required aria-describedby="target-url-help" />
+        <div class="form-text" id="target-url-help">The URL the POST-Requests are sent to</div>
+      </div>
+      <fieldset class="mb-3">
+        <legend class="form-label fw-semibold fs-6">Subscribed Events</legend>
+        <div id="events-group"><span class="text-body-secondary">Loading events…</span></div>
+      </fieldset>
+      <button type="submit" class="btn btn-success" id="register-button" disabled>Register Webhook</button>
+
+      <hr />
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label fw-semibold" for="webhook-id">Webhook ID</label>
+          <input type="text" class="form-control" id="webhook-id" readonly aria-describedby="webhook-id-help" />
+          <div class="form-text" id="webhook-id-help">Unique ID of the Webhook</div>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold" for="webhook-secret">Secret</label>
+          <input type="text" class="form-control" id="webhook-secret" readonly aria-describedby="webhook-secret-help" />
+          <div class="form-text" id="webhook-secret-help">Secret for the Webhook - used to edit/delete</div>
+        </div>
+      </div>
+    </form>
+
+    <hr />
+
+    <h2 id="delete">Delete Webhook</h2>
+    <form id="delete-form" class="mb-4" novalidate>
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label class="form-label fw-semibold" for="delete-id">ID</label>
+          <input type="text" class="form-control" id="delete-id" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold" for="delete-secret">Secret</label>
+          <input type="text" class="form-control" id="delete-secret" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-danger" id="delete-button" disabled>Delete Webhook</button>
+    </form>
+  </div>
+</Layout>
+
+<script>
+  import { API_BASE, apiGet, el, readError } from '../scripts/api';
+  import { showAlert } from '../scripts/alert';
+
+  const UA = 'SpigetWebhooks';
+
+  const registerForm = document.getElementById('register-form') as HTMLFormElement;
+  const targetUrl = document.getElementById('target-url') as HTMLInputElement;
+  const eventsGroup = document.getElementById('events-group') as HTMLElement;
+  const registerButton = document.getElementById('register-button') as HTMLButtonElement;
+  const webhookId = document.getElementById('webhook-id') as HTMLInputElement;
+  const webhookSecret = document.getElementById('webhook-secret') as HTMLInputElement;
+
+  const deleteForm = document.getElementById('delete-form') as HTMLFormElement;
+  const deleteId = document.getElementById('delete-id') as HTMLInputElement;
+  const deleteSecret = document.getElementById('delete-secret') as HTMLInputElement;
+  const deleteButton = document.getElementById('delete-button') as HTMLButtonElement;
+
+  const selectedEvents = () =>
+    Array.from(eventsGroup.querySelectorAll<HTMLInputElement>('input[type=checkbox]:checked')).map((input) => input.value);
+
+  const validateRegister = () => {
+    registerButton.disabled = targetUrl.value.trim().length === 0 || selectedEvents().length === 0;
+  };
+  const validateDelete = () => {
+    deleteButton.disabled = deleteId.value.trim().length === 0 || deleteSecret.value.trim().length === 0;
+  };
+
+  async function loadEvents() {
+    try {
+      const response = await apiGet<{ events: string[] }>('/webhook/events', {}, { ua: UA });
+      eventsGroup.replaceChildren(
+        ...response.events.map((event) => {
+          const id = `event-${event}`;
+          return el(
+            'div',
+            { class: 'form-check' },
+            el('input', { class: 'form-check-input', type: 'checkbox', value: event, id }),
+            el('label', { class: 'form-check-label', for: id }, el('code', {}, event)),
+          );
+        }),
+      );
+    } catch {
+      eventsGroup.replaceChildren(el('span', { class: 'text-danger' }, 'Could not load the list of events'));
+    }
+  }
+
+  registerForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const events = selectedEvents();
+    const url = targetUrl.value.trim();
+    if (!url || events.length === 0) return;
+
+    registerButton.disabled = true;
+    webhookId.value = '';
+    webhookSecret.value = '';
+    try {
+      const response = await fetch(`${API_BASE}/webhook/register?spiget___ua=${UA}`, {
+        method: 'POST',
+        body: new URLSearchParams({ url, events: JSON.stringify(events) }),
+      });
+      if (!response.ok) {
+        showAlert('danger', `Error: ${await readError(response)}`);
+        return;
+      }
+      const created = await response.json();
+      webhookId.value = created.id;
+      webhookSecret.value = created.secret;
+      showAlert('success', 'Webhook created. Make sure to save the ID & Secret!');
+    } catch {
+      showAlert('danger', 'Error: could not reach the API');
+    } finally {
+      validateRegister();
+    }
+  });
+
+  deleteForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const id = deleteId.value.trim();
+    const secret = deleteSecret.value.trim();
+    if (!id || !secret) return;
+
+    deleteButton.disabled = true;
+    try {
+      const response = await fetch(
+        `${API_BASE}/webhook/delete/${encodeURIComponent(id)}/${encodeURIComponent(secret)}?spiget___ua=${UA}`,
+        { method: 'DELETE' },
+      );
+      if (response.ok) {
+        showAlert('success', 'Webhook removed');
+      } else {
+        showAlert('danger', `Error: ${await readError(response)}`);
+      }
+    } catch {
+      showAlert('danger', 'Error: could not reach the API');
+    } finally {
+      validateDelete();
+    }
+  });
+
+  targetUrl.addEventListener('input', validateRegister);
+  eventsGroup.addEventListener('change', validateRegister);
+  deleteId.addEventListener('input', validateDelete);
+  deleteSecret.addEventListener('input', validateDelete);
+
+  loadEvents();
+</script>

@@ -1,0 +1,15 @@
+# Old PHP redirects
+/issues                 https://github.com/SpiGetOrg/Spiget/issues  301
+/issues/                https://github.com/SpiGetOrg/Spiget/issues  301
+/go/v2-release          https://www.spigotmc.org/threads/api-spiget-beta.104454/page-2#post-1805370  302
+/go/v2-release/         https://www.spigotmc.org/threads/api-spiget-beta.104454/page-2#post-1805370  302
+
+# Legal pages live on legal.inventivetalent.org
+/legal/privacy          https://legal.inventivetalent.org/privacy  301
+/legal/privacy/         https://legal.inventivetalent.org/privacy  301
+/legal/terms            https://legal.inventivetalent.org/terms  301
+/legal/terms/           https://legal.inventivetalent.org/terms  301
+
+# The API spec used to be proxied through PHP
+/documentation/docs     https://raw.githubusercontent.com/SpiGetOrg/Documentation/master/swagger.json  302
+/documentation/docs/    https://raw.githubusercontent.com/SpiGetOrg/Documentation/master/swagger.json  302

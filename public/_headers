@@ -1,0 +1,3 @@
+# Same as the old .htaccess
+/*
+  Access-Control-Allow-Origin: *

@@ -1,0 +1,44 @@
+---
+interface Props {
+  modes: { value: string; label: string }[];
+  modeLabel: string;
+  queryPlaceholder: string;
+  switchLink: { href: string; label: string };
+}
+const { modes, modeLabel, queryPlaceholder, switchLink } = Astro.props;
+---
+
+<form id="search-form" class="well" role="search">
+  <div class="row g-2">
+    <div class="col-md-3">
+      <label class="visually-hidden" for="search-mode">{modeLabel}</label>
+      <select class="form-select" id="search-mode">
+        {modes.map((mode) => <option value={mode.value}>{mode.label}</option>)}
+      </select>
+    </div>
+    <div class="col-md-9">
+      <label class="visually-hidden" for="search-query">Search</label>
+      <input class="form-control" type="search" id="search-query" placeholder={queryPlaceholder} autocomplete="off" />
+    </div>
+  </div>
+  <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+    <button type="submit" class="btn btn-success">
+      <i class="bi bi-search me-1" aria-hidden="true"></i> Search
+    </button>
+    <label class="visually-hidden" for="search-limit">Result limit</label>
+    <input class="form-control" type="number" min="1" id="search-limit" placeholder="Limit" title="Result limit" style="max-width: 100px" />
+    <span class="spinner-border spinner-border-sm text-primary" id="search-spinner" role="status" hidden>
+      <span class="visually-hidden">Loading…</span>
+    </span>
+    <span aria-live="polite"><strong id="search-count">0</strong> Search Results</span>
+    <a class="btn btn-primary ms-auto" href={switchLink.href}>
+      {switchLink.label} <i class="bi bi-chevron-right ms-1" aria-hidden="true"></i>
+    </a>
+  </div>
+</form>
+
+<div class="well">
+  <div id="search-results"></div>
+  <hr />
+  <pre class="raw-json mb-0" id="search-raw"></pre>
+</div>

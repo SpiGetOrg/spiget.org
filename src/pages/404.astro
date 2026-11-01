@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page not found">
+  <div class="container text-center py-5">
+    <img src="/img/not-found-256.png" width="256" height="256" alt="" class="mb-4" />
+    <h1>Page not found</h1>
+    <p class="fs-5">This page doesn't exist (anymore).</p>
+    <p>
+      <a href="/" class="btn btn-primary">Home</a>
+      <a href="/search/" class="btn btn-success">Search</a>
+    </p>
+  </div>
+</Layout>
+
+<script is:inline>
+  // Old search links like /search/resources:worldedit/10 are path based.
+  // Send them to the search page with the query in ?q= so every static host can serve them.
+  (function () {
+    var path = window.location.pathname;
+    var bases = ['/search/version/', '/search/'];
+    for (var i = 0; i < bases.length; i++) {
+      if (path.indexOf(bases[i]) === 0 && path.length > bases[i].length) {
+        var query = path.substring(bases[i].length).replace(/\/$/, '');
+        try {
+          query = decodeURIComponent(query);
+        } catch (e) {
+          // Malformed escape sequence, pass it on as is
+        }
+        window.location.replace(bases[i] + '?q=' + encodeURIComponent(query));
+        return;
+      }
+    }
+  })();
+</script>

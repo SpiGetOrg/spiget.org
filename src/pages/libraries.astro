@@ -1,0 +1,83 @@
+---
+import { readFileSync } from 'node:fs';
+import Layout from '../layouts/Layout.astro';
+import RemoteCode from '../components/RemoteCode.astro';
+
+// The list stays at public/libraries/libraries.json so the public URL and the "edit on GitHub" link keep working
+interface Library {
+  name: string;
+  author?: { name: string; url?: string };
+  source?: string;
+  download?: string;
+  codeExample?: { url: string; language: string };
+}
+const libraries: Library[] = JSON.parse(readFileSync('public/libraries/libraries.json', 'utf-8'));
+// Heading anchors; some libraries share a name, so number the repeats
+const used = new Map<string, number>();
+const ids = libraries.map((library) => {
+  const base = library.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const count = (used.get(base) ?? 0) + 1;
+  used.set(base, count);
+  return count === 1 ? base : `${base}-${count}`;
+});
+---
+
+<Layout title="Libraries" description="Libraries for making requests to the Spiget API">
+  <div class="container">
+    <h1 class="page-header">Libraries</h1>
+
+    {
+      libraries.map((library, index) => (
+        <section class="mb-4">
+          <h2 id={ids[index]}>{library.name.trim()}</h2>
+          {library.author && (
+            <p>
+              <strong>Author</strong>&nbsp;
+              {library.author.url ? (
+                <a href={library.author.url} target="_blank" rel="noopener">
+                  {library.author.name}
+                </a>
+              ) : (
+                library.author.name
+              )}
+            </p>
+          )}
+          <p class="d-flex flex-column gap-1">
+            {library.download && (
+              <a href={library.download} target="_blank" rel="noopener">
+                <strong>
+                  <i class="bi bi-arrow-down lib-icon" aria-hidden="true" /> Download here
+                </strong>
+              </a>
+            )}
+            {library.source && (
+              <a href={library.source} target="_blank" rel="noopener">
+                <strong>
+                  <i class="bi bi-file-earmark-code-fill lib-icon" aria-hidden="true" /> Source
+                </strong>
+              </a>
+            )}
+          </p>
+          {library.codeExample && (
+            <>
+              <h3 class="h5">Example Code</h3>
+              <RemoteCode url={library.codeExample.url} lang={library.codeExample.language} />
+            </>
+          )}
+          <hr />
+        </section>
+      ))
+    }
+
+    <h2>Submit your own Library/API</h2>
+    <p>
+      To submit your own Library, edit
+      <a href="https://github.com/SpiGetOrg/spiget.org/blob/master/public/libraries/libraries.json" target="_blank" rel="noopener">
+        <strong>this file on GitHub</strong>
+      </a>
+      or
+      <a href="https://twitter.com/intent/tweet?text=@Inventivtalent%20@spiget_org%20I%20want%20to%20submit%20a%20library%20for%20Spiget!">tweet @Inventivetalent</a>
+      and provide links to the source-code, a download and possibly an example :)
+    </p>
+  </div>
+</Layout>

@@ -1,0 +1,496 @@
+// Spiget theme on top of Bootstrap 5.
+// Keeps the original look: orange brand, Open Sans, square corners, blue links.
+
+$spiget-orange: #ffa500;
+$spiget-orange-dark: #e69500;
+
+$primary: $spiget-orange;
+$success: #26803a;
+$warning: #ffc107;
+
+$link-color: #337ab7;
+$link-color-dark: #7fb2e5;
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+$font-family-sans-serif: 'Open Sans Variable', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-size-base: 0.9375rem;
+$headings-font-weight: 500;
+
+$enable-rounded: false;
+$enable-shadows: false;
+$enable-dark-mode: true;
+$color-mode-type: data;
+
+@import 'bootstrap/scss/bootstrap';
+
+// ---------------------------------------------------------------------------
+// Theme variables used by the custom components below
+
+:root,
+[data-bs-theme='light'] {
+  --spiget-orange: #{$spiget-orange};
+  --spiget-orange-dark: #{$spiget-orange-dark};
+  --spiget-pipe: #fea501;
+  --spiget-nav-bg: #f8f8f8;
+  --spiget-nav-border: #e7e7e7;
+  --spiget-nav-active-bg: #e7e7e7;
+  --spiget-surface: #f5f5f5;
+  --spiget-surface-border: #e3e3e3;
+  --spiget-on-orange: #222;
+}
+
+[data-bs-theme='dark'] {
+  --spiget-nav-bg: #1d2024;
+  --spiget-nav-border: #2c3036;
+  --spiget-nav-active-bg: #2c3036;
+  --spiget-surface: #22262b;
+  --spiget-surface-border: #343a40;
+  --spiget-on-orange: #1a1a1a;
+}
+
+html {
+  scroll-padding-top: 110px;
+}
+
+body {
+  padding-top: 110px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+// The original buttons sat flat on the page with square corners
+.btn {
+  font-weight: 600;
+}
+
+.btn-primary {
+  --bs-btn-color: var(--spiget-on-orange);
+  --bs-btn-hover-color: var(--spiget-on-orange);
+  --bs-btn-active-color: var(--spiget-on-orange);
+  --bs-btn-hover-bg: #{$spiget-orange-dark};
+  --bs-btn-hover-border-color: #{$spiget-orange-dark};
+}
+
+.page-header {
+  padding-bottom: 0.5rem;
+  margin: 1.5rem 0 1.25rem;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+// "Well": flat gray box used for forms and supporters
+.well {
+  background: var(--spiget-surface);
+  border: 1px solid var(--spiget-surface-border);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.noselect {
+  user-select: none;
+}
+
+// Clicking the o in "Spigot" swaps it for an e (and back)
+.eo {
+  cursor: pointer;
+}
+
+// ---------------------------------------------------------------------------
+// Navigation
+
+.site-nav {
+  background: var(--spiget-nav-bg);
+  border-bottom: 1px solid var(--spiget-nav-border);
+  min-height: 100px;
+  transition: transform 0.3s ease;
+
+  &.nav-hidden {
+    transform: translateY(-100%);
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .spiget-text {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .spiget-spi {
+    color: var(--spiget-orange);
+  }
+
+  .spiget-get {
+    color: var(--bs-emphasis-color);
+  }
+
+  .nav-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .nav-link.active {
+    background: var(--spiget-nav-active-bg);
+  }
+
+  @include media-breakpoint-down(lg) {
+    .navbar-collapse {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Footer
+
+.site-footer {
+  background: var(--spiget-surface);
+  border-top: 1px solid var(--spiget-surface-border);
+  padding: 1rem 0;
+  margin-top: 2rem;
+
+  .footer-row > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 40px;
+  }
+
+  .github-link {
+    font-size: 1.75rem;
+    color: var(--bs-emphasis-color);
+    line-height: 1;
+  }
+}
+
+// Alert that slides in at the bottom of the screen (search errors, webhook results)
+#footer-alert {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 960px);
+  margin: 0;
+  z-index: 1050;
+}
+
+// ---------------------------------------------------------------------------
+// Home page
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 325px;
+
+  .container {
+    position: relative;
+    min-height: 325px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    font-weight: 400;
+  }
+
+  .hero-buttons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
+
+// Faucet logo with an orange pipe running to the right edge of the window.
+// The pipe sits in rows 124-187 of the 256x267 logo image.
+.faucet {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  margin-top: -133px;
+  width: 256px;
+  height: 267px;
+  animation: faucet-in 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.6s both;
+
+  img {
+    position: relative;
+    z-index: 1;
+    width: 256px;
+    height: 267px;
+  }
+
+  .pipe {
+    position: absolute;
+    left: calc(100% - 4px);
+    top: 124px;
+    height: 64px;
+    width: 100vw;
+    background: var(--spiget-pipe);
+  }
+}
+
+@keyframes faucet-in {
+  from {
+    transform: translateX(calc(100% + 50vw));
+  }
+  to {
+    transform: none;
+  }
+}
+
+.stats-band {
+  background: var(--spiget-orange);
+  color: var(--spiget-on-orange);
+  padding: 0.75rem 0 1.25rem;
+
+  h2 {
+    font-size: 2.2rem;
+    margin: 0.25rem 0 0.5rem;
+  }
+
+  .stat-value {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+  }
+
+  .stat-description {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin: 0.25rem 0 0.5rem;
+  }
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  margin: 2.5rem 0 1rem;
+}
+
+.data-list-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+// Circled icon that overlaps the top-left corner of a list box
+.corner-icon {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--spiget-orange);
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+  color: var(--bs-emphasis-color);
+  font-size: 0.9rem;
+}
+
+ul.data-list {
+  list-style: none;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  min-height: 100px;
+  margin: 0;
+
+  > li {
+    padding: 2px;
+    animation: fade-in 0.4s ease both;
+  }
+
+  > li > a {
+    font-weight: 600;
+  }
+
+  .extra {
+    margin-left: 0.3rem;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.supporter-list {
+  list-style: none;
+  padding: 0;
+}
+
+.supporter {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  min-height: 146px;
+
+  .supporter-image {
+    width: 128px;
+    height: 128px;
+    flex: none;
+    object-fit: contain;
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin: 0 0 0.25rem;
+  }
+}
+
+// Ads: keep the side columns from collapsing to nothing while ads load
+.ad-slot {
+  min-height: 90px;
+  margin-bottom: 1rem;
+}
+
+// Google's recommended rule: hide units that AdSense could not fill
+ins.adsbygoogle[data-ad-status='unfilled'] {
+  display: none !important;
+}
+
+// ---------------------------------------------------------------------------
+// Search pages
+
+.result-panel {
+  border: 1px solid var(--spiget-orange);
+  margin-bottom: 1rem;
+
+  .result-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    background: rgba(255, 179, 40, 0.93);
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+
+    a {
+      color: #00478a;
+    }
+
+    .result-id {
+      color: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  .result-body {
+    padding: 0.6rem 0.75rem;
+  }
+}
+
+.raw-json {
+  max-height: 600px;
+  overflow: auto;
+  font-size: 0.8rem;
+}
+
+// ---------------------------------------------------------------------------
+// Status page
+
+.server {
+  display: inline-grid;
+  place-items: center;
+  margin: 8px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  border: 2px solid var(--bs-body-bg);
+
+  &.mode-master {
+    border-color: var(--bs-emphasis-color);
+  }
+
+  &.mode-slave {
+    border-color: lightgray;
+  }
+
+  a {
+    line-height: 1;
+  }
+}
+
+.fetcher-status {
+  font-size: 1.85rem;
+  font-weight: 700;
+
+  .updating {
+    color: var(--spiget-orange);
+  }
+
+  .updated {
+    color: #2f9e44;
+  }
+}
+
+.fetcher-details {
+  font-size: 1rem;
+
+  .time {
+    color: var(--spiget-orange);
+  }
+}
+
+.chart-box {
+  position: relative;
+  height: 420px;
+}
+
+// ---------------------------------------------------------------------------
+// Libraries and webhook pages
+
+.code-block pre {
+  padding: 1rem;
+  border: 1px solid var(--spiget-surface-border);
+  font-size: 0.85rem;
+}
+
+// Shiki ships light and dark colours; switch with the site theme
+[data-bs-theme='dark'] .astro-code,
+[data-bs-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+.lib-icon {
+  color: var(--spiget-orange);
+}
+
+// ---------------------------------------------------------------------------
+// Motion preferences
+
+@media (prefers-reduced-motion: reduce) {
+  .faucet,
+  ul.data-list > li {
+    animation: none;
+  }
+
+  .site-nav {
+    transition: none;
+  }
+}

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// API reference rendered by Scalar, straight from the documentation repository
+const SPEC_URL = 'https://raw.githubusercontent.com/SpiGetOrg/Documentation/master/swagger.json';
+const SCALAR_VERSION = '1.76.4';
+---
+
+<Layout title="Documentation" description="Spiget API reference: every endpoint, parameter and response" autoHideNav={false}>
+  <div id="api-reference" data-spec-url={SPEC_URL}>
+    <noscript>
+      <div class="container py-4">
+        The API reference needs JavaScript. You can read the raw spec here:
+        <a href={SPEC_URL}>swagger.json</a>
+      </div>
+    </noscript>
+  </div>
+
+  <script is:inline src={`https://cdn.jsdelivr.net/npm/@scalar/api-reference@${SCALAR_VERSION}`} slot="scripts"></script>
+  <script is:inline slot="scripts">
+    (function () {
+      var target = document.getElementById('api-reference');
+      var dark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+      Scalar.createApiReference(target, {
+        url: target.dataset.specUrl,
+        darkMode: dark,
+        forceDarkModeState: dark ? 'dark' : 'light',
+        hideDarkModeToggle: true,
+        showDeveloperTools: 'never',
+        agent: { disabled: true },
+        withDefaultFonts: false,
+        metaData: { title: 'Documentation | Spiget' },
+        customCss:
+          ':root { --scalar-custom-header-height: 101px; --scalar-font: "Open Sans Variable", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }',
+      });
+    })();
+  </script>
+</Layout>
+
