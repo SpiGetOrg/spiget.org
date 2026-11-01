@@ -3,6 +3,10 @@
 	"name": "spiget-org",
 	// Newest date the local runtime used by `wrangler dev` (wrangler 4.156) supports; newer dates break local dev
 	"compatibility_date": "2026-10-30",
+	// Cloudflare creates and manages the DNS record for spiget.org
+	"routes": [{ "pattern": "spiget.org", "custom_domain": true }],
+	// Keep spiget-org.<subdomain>.workers.dev as a second address for checks
+	"workers_dev": true,
 	// Static site only: no Worker script, Cloudflare serves the Astro build output directly.
 	// public/_redirects and public/_headers are copied into dist/ and applied by Cloudflare.
 	"assets": {
