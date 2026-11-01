@@ -69,6 +69,18 @@ export function fromNow(timestamp: number): string {
   return '';
 }
 
+/** Metrics timestamps are milliseconds; older API responses used seconds */
+export function metricMillis(timestamp: number): number {
+  return timestamp > 1e12 ? timestamp : timestamp * 1000;
+}
+
+/** Drop today's entry (UTC days): it only counts requests so far and would drag averages and charts down */
+export function completeDays<T extends { timestamp: number }>(days: T[]): T[] {
+  const now = new Date();
+  const startOfToday = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  return days.filter((day) => metricMillis(day.timestamp) < startOfToday);
+}
+
 export const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /** Build an element from a tag, attributes and children. Text children are never parsed as HTML. */

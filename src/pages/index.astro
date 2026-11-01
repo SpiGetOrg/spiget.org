@@ -113,12 +113,13 @@ import TryIt from '../components/TryIt.astro';
 </Layout>
 
 <script>
-  import { apiGet, el, formatNumber, prefersReducedMotion } from '../scripts/api';
+  import { apiGet, completeDays, el, formatNumber, prefersReducedMotion } from '../scripts/api';
 
   interface Status {
     stats: { resources: number; authors: number };
   }
   interface Metric {
+    timestamp: number;
     total: number;
   }
   interface Resource {
@@ -176,7 +177,7 @@ import TryIt from '../components/TryIt.astro';
         { pretty: 'false', simple: 'true' },
         { ua: UA, timeoutMs: 8_000 },
       );
-      const days = Object.values(metrics).filter((day) => day.total > 0);
+      const days = completeDays(Object.values(metrics)).filter((day) => day.total > 0);
       const average = days.length ? days.reduce((sum, day) => sum + day.total, 0) / days.length : 0;
       animateValue('stat-requests', Math.round(average), 2500);
     } catch {

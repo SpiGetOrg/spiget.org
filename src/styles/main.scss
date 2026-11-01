@@ -412,29 +412,6 @@ ins.adsbygoogle[data-ad-status='unfilled'] {
 // ---------------------------------------------------------------------------
 // Status page
 
-.server {
-  display: inline-grid;
-  place-items: center;
-  margin: 8px;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 40px;
-  border: 2px solid var(--bs-body-bg);
-
-  &.mode-master {
-    border-color: var(--bs-emphasis-color);
-  }
-
-  &.mode-slave {
-    border-color: lightgray;
-  }
-
-  a {
-    line-height: 1;
-  }
-}
-
 .fetcher-status {
   font-size: 1.85rem;
   font-weight: 700;
