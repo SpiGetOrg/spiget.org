@@ -1,0 +1,59 @@
+---
+// Cookie consent banner: the cookie consent library (public/js/cookie-consent.min.js) and its config.
+// Both scripts are normal blocking scripts in <head>, placed before any Google tag, so Google Consent Mode defaults
+// are set before AdSense or Google Analytics run.
+// Where GDPR applies (EEA, UK, Switzerland), Google's consent message (delivered with AdSense) is the only dialog:
+// the library reads the visitor's choice from it through the IAB TCF API and does not show its own banner.
+// Everywhere else the library shows its own banner. The banner follows <html lang>, so it is in English.
+// Colours: see "Cookie consent banner" in src/styles/main.scss.
+
+// Rows of the cookie table in the settings dialog. The names double as the patterns cleared when a visitor
+// withdraws a category (`*` is a wildcard).
+const adDelivery = 'Ad delivery: limits how often you see an ad and measures ad performance.';
+
+const config = {
+  links: { privacy: 'https://legal.inventivetalent.org/privacy' },
+  tcf: { enabled: true },
+  categories: {
+    strict: {
+      required: true,
+      // The built-in text mentions staying signed in; Spiget has no accounts.
+      description: 'Required for the site to work, for example to remember your cookie choice.',
+      cookies: [
+        { name: 'CookieScriptConsent', provider: 'Spiget', duration: '1 year', description: 'Stores your cookie choice.' },
+        {
+          name: 'FCCDCF',
+          provider: 'Google',
+          duration: '13 months',
+          description: "Stores your choice in Google's consent message (EEA, UK, Switzerland).",
+        },
+      ],
+    },
+    performance: {
+      cookies: [
+        { name: '_ga', provider: 'Google Analytics', duration: '2 years', description: 'Distinguishes visitors for usage statistics.' },
+        { name: '_ga_*', provider: 'Google Analytics', duration: '2 years', description: 'Keeps the state of the current visit.' },
+      ],
+    },
+    targeting: {
+      cookies: [
+        { name: '__gads', provider: 'Google AdSense', duration: '13 months', description: adDelivery },
+        { name: '__gpi', provider: 'Google AdSense', duration: '13 months', description: adDelivery },
+        { name: '__eoi', provider: 'Google AdSense', duration: '6 months', description: 'Ad security and fraud prevention.' },
+        { name: 'FCNEC', provider: 'Google', duration: '1 year', description: "Measures how Google's consent and ad messages are shown." },
+      ],
+    },
+  },
+};
+---
+
+<script is:inline src="/js/cookie-consent.min.js"></script>
+<script is:inline define:vars={{ config }}>
+  // Cookies of the previous consent banner: expire them once, then this check finds nothing.
+  if (document.cookie.indexOf('cookie_consent_') !== -1) {
+    ['cookie_consent_level', 'cookie_consent_user_accepted', 'cookie_consent_user_consent_token'].forEach(function (name) {
+      document.cookie = name + '=; Max-Age=0; path=/';
+    });
+  }
+  if (window.CookieConsent) window.CookieConsent.init(config);
+</script>
