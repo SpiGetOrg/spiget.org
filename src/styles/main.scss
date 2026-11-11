@@ -183,6 +183,24 @@ main {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Cookie consent banner (src/components/CookieConsent.astro): site colours in light and dark mode.
+// The library keeps its theme values on #ccd-root, so the override uses the same ID selector.
+
+#ccd-root {
+  --ccd-bg: var(--bs-body-bg);
+  --ccd-fg: var(--bs-body-color);
+  --ccd-muted: var(--bs-secondary-color);
+  --ccd-border: var(--bs-border-color);
+  --ccd-primary: var(--spiget-orange);
+  --ccd-primary-fg: var(--spiget-on-orange);
+  --ccd-secondary: var(--bs-secondary-bg);
+  --ccd-secondary-fg: var(--bs-body-color);
+  --ccd-toggle: var(--spiget-orange);
+  --ccd-radius: 0;
+  --ccd-font: #{$font-family-sans-serif};
+}
+
 // Alert that slides in at the bottom of the screen (search errors, webhook results)
 #footer-alert {
   position: fixed;
